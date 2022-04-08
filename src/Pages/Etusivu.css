@@ -1,0 +1,15 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+#etusivuDiv {
+    margin-right: 19%;
+    margin-left: 19%;
+    border: 2px solid red;
+    height: 300px;
+}
+#etusivuDiv img{
+    width:10%;
+    display:none;
+}
+#etusivuDiv h1 {
+        color: red;
+        font-family: 'Roboto', sans-serif;
+}

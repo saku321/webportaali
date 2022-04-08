@@ -1,0 +1,82 @@
+﻿/*fontit*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/*Menu*/
+#menuDiv {
+    height: 100px;
+    margin-right:10%;
+    margin-left:10%;
+
+   
+    margin-top: 10px;
+    
+}
+#menuUl{
+    margin:0px;
+    display:inline-flex;
+}
+
+#menuUl li{
+    list-style:none;
+    margin:40px;
+    margin-left:5px;
+
+}
+#menuUl li a{
+    text-decoration:none;
+    color:#36918E;
+    font-family: 'Roboto', sans-serif;
+    font-size:21px;
+
+}
+#menuUl li a:hover {
+    color:gray;
+    transition-duration:0.5s;
+}
+/*Header*/
+#headerDiv {
+    margin-right:19%;
+    margin-left:19%;
+    height: 100px;
+    margin-top:50px;
+    border-bottom:1px solid gray;
+}
+#headerDiv ul{
+    float:right;
+    display:inline-flex;
+    flex-wrap:nowrap;
+}
+#headerDiv img {
+        width: 30%;
+        float:left;
+}
+#headerDiv li{
+    list-style:none;
+    margin:10px;
+    
+}
+
+#headerDiv li a {
+    text-decoration: none;
+    color: #36918E;
+}
+/*Dropdown menut*/
+.dropDown {
+    background-color: #f7f7f7;
+    z-index: 1;
+    position: absolute;
+    color: #36918E;
+    border-radius:5px;
+    font-size:20px;
+    margin-left:-25px;
+    display:none;
+}
+
+#palvelut:hover #palvelutDropDown{
+    display:block;
+}
+#yritykset:hover #yrityksetDropDown {
+    display: block;
+}
+#mainokset:hover #mainoksetDropDown {
+    display: block;
+}

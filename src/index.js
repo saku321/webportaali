@@ -1,20 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 import Main from './Main';
-import Menu from './Menu';
-import Header from './Header';
-ReactDOM.render(
-    <React.StrictMode>
-        <Header />
-       
-        <Menu />
-        <Main />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import Handler from './handler.jsx';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Main />);
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
