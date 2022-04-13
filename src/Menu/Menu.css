@@ -34,11 +34,11 @@
 }
 /*Header*/
 #headerDiv {
-    margin-right:19%;
-    margin-left:19%;
+    margin-right: 15%;
+    margin-left: 15%;
     height: 100px;
-    margin-top:50px;
-    border-bottom:1px solid gray;
+    margin-top: 50px;
+    border-bottom: 1px solid #E0E0E0;
 }
 #headerDiv ul{
     float:right;
@@ -46,7 +46,7 @@
     flex-wrap:nowrap;
 }
 #headerDiv img {
-        width: 30%;
+        width: 28%;
         float:left;
 }
 #headerDiv li{
@@ -67,16 +67,17 @@
     color: #36918E;
     border-radius:5px;
     font-size:20px;
-    margin-left:-25px;
     display:none;
+
 }
+
 
 #palvelut:hover #palvelutDropDown{
     display:block;
 }
-#yritykset:hover #yrityksetDropDown {
+#asuminen:hover #asuminenDropDown {
     display: block;
 }
-#mainokset:hover #mainoksetDropDown {
+#harrastukset:hover #harrastuksetDropDown {
     display: block;
 }

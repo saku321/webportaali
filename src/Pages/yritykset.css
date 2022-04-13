@@ -1,0 +1,32 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+body
+{
+}
+#yritysDiv {
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-top:5%;
+}
+#yritysDiv ul {
+}
+#yritysDiv li {
+    list-style: none;
+    width:100%;
+    min-height:500px;
+    border-bottom:1px solid #E0E0E0;
+    font-family: 'Roboto', sans-serif;
+
+}
+#yritysDiv li p{
+    float:left;
+    width:45%;
+    line-height:40px;
+    text-align:left;
+    font-size:20px;
+}
+#yritysDiv iframe {
+    width: 40%;
+    float: right;
+    height: 300px;
+    border-radius: 8px;
+}

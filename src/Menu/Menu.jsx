@@ -30,42 +30,42 @@ function Menu() {
         <div id='menuDiv'>
                 <ul id='menuUl'>
 
-                    <li><a href="./RegisterPage.jsx" >Etusivu</a></li>
+                    <li><Link to="/">Etusivu</Link></li>
                     
                     <li id="palvelut">
                         <a href="#">Palvelut</a>
                             <div className="dropDown" id="palvelutDropDown">
                                 <ul>
-                                <li>sivu#1</li>
-                                <li>sivu#2</li>
-                                <li>sivu#3</li>
-                                <li>sivu#4</li>
-                                <li>sivu#5</li>
+                                <li><Link to="/yritykset">Yritykset</Link></li>
+                                <li><Link to="/">Työsuoritukset</Link></li>
+                                <li><Link to="/">Suoramyynti</Link></li>
+                                <li><Link to="/">Muut</Link></li>
                                 </ul>
                             </div>
                     </li>
 
-                    <li id="yritykset">
-                        <a href="#">Yritykset</a>
-                        <div className="dropDown" id="yrityksetDropDown">
+                    <li id="asuminen">
+                        <a href="#">Asuminen</a>
+                        <div className="dropDown" id="asuminenDropDown">
                             <ul>
-                                <li>sivu#1</li>
-                                <li>sivu#2</li>
-                                <li>sivu#3</li>
-                                <li>sivu#4</li>
-                                <li>sivu#5</li>
+                                <li><Link to="/">Tontit</Link></li>
+
+                                <li><Link to="/">Myytävät asunnot</Link></li>
+                                <li><Link to="/">Vuokrattavat asunnot</Link></li>
+                                <li><Link to="/">Vapaa-ajan asunnot</Link></li>
                             </ul>
                         </div>
                     </li>
-                    <li id="mainokset">
-                        <a href="#">Mainokset</a>
-                        <div className="dropDown" id="mainoksetDropDown">
+                    <li id="harrastukset">
+                        <a href="#">Harrastukset</a>
+                        <div className="dropDown" id="harrastuksetDropDown">
                             <ul>
-                                <li>sivu#1</li>
-                                <li>sivu#2</li>
-                                <li>sivu#3</li>
-                                <li>sivu#4</li>
-                                <li>sivu#5</li>
+                                <li><Link to="/">Yhdistykset</Link></li>
+                               
+                                <li><Link to="/">Vapaa-aika</Link></li>
+                                <li><Link to="/">Ladut</Link></li>
+                                <li><Link to="/">Kalastus</Link></li>
+                                <li><Link to="/">Tapahtumat</Link></li>
                             </ul>
                         </div>
                     </li>

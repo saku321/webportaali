@@ -8,7 +8,7 @@ import Navbar from './Menu/navbar.jsx'
 /*sivut*/
 import Etusivu from './Pages/Etusivu.jsx';
 import Registerpage from './Pages/Register/register.jsx';
-
+import Yritykset from './Pages/Yritykset.jsx';
 function Main() {
     return (
       
@@ -26,6 +26,7 @@ function Main() {
                     <Route path='/' exact element={<Etusivu />} />
                         <Route path="/kirjaudu" element={<Registerpage />} />
                         <Route path="/register" element={<Registerpage />} />
+                        <Route path="/yritykset" element={<Yritykset />} />
                     </Routes>
                 </Router>
        
