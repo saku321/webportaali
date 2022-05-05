@@ -26,8 +26,8 @@ const Navbar = () => {
             <ThemeProvider theme={theme}>
                 <ul>
                     <Link to="/"></Link>
-                    <li><Button color="neutral" variant="outlined"><Link to="/kirjaudu">Kirjaudu</Link></Button></li>
-                    <li> <Button color="neutral" variant="outlined"> <Link to="/register">Rekisteröidy</Link> </Button></li>
+                    <li><Link to="/kirjaudu"><Button color="neutral" variant="outlined">Kirjaudu</Button></Link></li>
+                    <li> <Link to="/register"><Button color="neutral" variant="outlined"> Rekisteröidy </Button></Link></li>
 
 
                 </ul>

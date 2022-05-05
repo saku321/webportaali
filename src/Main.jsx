@@ -9,7 +9,10 @@ import Navbar from './Menu/navbar.jsx'
 import Etusivu from './Pages/Etusivu.jsx';
 import Registerpage from './Pages/Register/register.jsx';
 import Yritykset from './Pages/Yritykset.jsx';
+import Tontit from './Pages/Tontit.jsx';
+import Kirjautuminen from './Pages/Kirjautuminen.jsx';
 function Main() {
+    
     return (
       
  
@@ -24,9 +27,10 @@ function Main() {
                 
                 <Routes>
                     <Route path='/' exact element={<Etusivu />} />
-                        <Route path="/kirjaudu" element={<Registerpage />} />
+                    <Route path="/kirjaudu" element={<Kirjautuminen />} />
                         <Route path="/register" element={<Registerpage />} />
                         <Route path="/yritykset" element={<Yritykset />} />
+                        <Route path="/tontit" element={<Tontit />} />
                     </Routes>
                 </Router>
        

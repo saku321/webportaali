@@ -1,32 +1,100 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 body
 {
 }
 #yritysDiv {
-    margin-right: 15%;
-    margin-left: 15%;
-    margin-top:5%;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 5%;
 }
-#yritysDiv ul {
+/*Yritysten taustat*/
+#kahvilaBackground {
+    background: url("../img/kuvia_Multia/kahvila.jpg");
+    background-size: cover;
+    width: 100%;
+    min-height: 450px;
+    position:absolute;
+    opacity:0.8;
+    z-index:-1;
+    filter:contrast(0.8);
+    border-radius:8px;
 }
-#yritysDiv li {
+#sahaBackground {
+    background: url("../img/kuvia_Multia/hirsityö.jpg");
+    background-size: cover;
+    width: 100%;
+    min-height: 450px;
+    position: absolute;
+    opacity: 0.8;
+    z-index: -1;
+    filter: contrast(0.8);
+    border-radius: 8px;
+}
+#metsaBackground {
+    background: url("../img/kuvia_Multia/korjuukone2.jpg");
+    background-size: cover;
+    width: 100%;
+    min-height: 450px;
+    position: absolute;
+    opacity: 0.8;
+    z-index: -1;
+    filter: contrast(0.8);
+    border-radius: 8px;
+}
+.yritysLi {
     list-style: none;
-    width:100%;
-    min-height:500px;
-    border-bottom:1px solid #E0E0E0;
+    width: 100%;
+    min-height: 450px;
+    border-bottom: 1px solid #E0E0E0;
     font-family: 'Roboto', sans-serif;
-
+    position: relative;
+    margin-bottom:100px;
 }
-#yritysDiv li p{
+.yritysLi p{
     float:left;
     width:45%;
     line-height:40px;
     text-align:left;
-    font-size:20px;
+    font-size:22px;
+    margin-left:50px;
 }
-#yritysDiv iframe {
+.yritysLi iframe {
     width: 40%;
-    float: right;
     height: 300px;
     border-radius: 8px;
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    border:none;
+}
+.yritysLi h1{
+    font-family: 'Montserrat', sans-serif;
+    color:#E0E0E0;
+
+}
+.yritysLi ul{
+    position:absolute;
+    bottom:5px;
+    left:0px;
+    display:inline-flex;
+    
+}
+.yritysLi ul li{
+    list-style:none;
+    margin:20px;
+    font-size:20px;
+}
+.yritysLi ul li a{
+    text-decoration:none;
+    color:black;
+}
+#yritysHeader {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+}
+#yrityksetBottomLine {
+    height: 1px;
+    background-color: #E0E0E0;
+    width: 100%;
 }

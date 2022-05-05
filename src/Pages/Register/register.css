@@ -1,0 +1,39 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+#registerDiv {
+    margin-right: 10%;
+    margin-left: 10%;
+}
+#registerDiv form{
+    width:400px;
+    height:300px;
+    margin:auto;
+    margin-top:3%;
+    font-family: 'Roboto', sans-serif;
+
+}
+#registerDiv div{
+    margin-bottom:20px;
+}
+#registerDiv button{
+    background-color:#007370;
+    font-size:18px;
+}
+#registerDiv a{
+     text-decoration:none;
+     color:#007370;
+     float:right;  
+}
+ #registerDiv a:hover{
+     color:#001a19;
+ }
+
+#registerDiv img{
+    width:20%;
+    margin-bottom:50px;
+}
+#registerDiv p{
+    float:left;
+    text-align:left;
+}

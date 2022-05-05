@@ -48,7 +48,7 @@ function Menu() {
                         <a href="#">Asuminen</a>
                         <div className="dropDown" id="asuminenDropDown">
                             <ul>
-                                <li><Link to="/">Tontit</Link></li>
+                                <li><Link to="/tontit">Tontit</Link></li>
 
                                 <li><Link to="/">Myytävät asunnot</Link></li>
                                 <li><Link to="/">Vuokrattavat asunnot</Link></li>

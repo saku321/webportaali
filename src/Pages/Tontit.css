@@ -1,0 +1,16 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+#tonttiDiv {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+#tonttiHeader {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+}
+#tontitBottomLine {
+    height: 1px;
+    background-color: #E0E0E0;
+    width: 100%;
+}
