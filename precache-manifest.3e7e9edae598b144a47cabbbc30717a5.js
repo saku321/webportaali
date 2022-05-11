@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "803f971d6a08de5b526e",
+    "revision": "9875d74bfe61ffc36e67",
     "url": "/WebPortaali/static/css/main.e205e64b.chunk.css"
   },
   {
-    "revision": "803f971d6a08de5b526e",
-    "url": "/WebPortaali/static/js/main.803f971d.chunk.js"
+    "revision": "9875d74bfe61ffc36e67",
+    "url": "/WebPortaali/static/js/main.9875d74b.chunk.js"
   },
   {
     "revision": "7127b45b886c0924a91b",
@@ -64,19 +64,19 @@ self.__precacheManifest = [
     "url": "/WebPortaali/static/media/add-user.f33eca0d.png"
   },
   {
-    "revision": "1e943ee147867a5586f03a7007048f45",
-    "url": "/WebPortaali/static/media/korjuukone2.1e943ee1.jpg"
-  },
-  {
     "revision": "0e0f8704d3914d88dafbb3295db375d4",
     "url": "/WebPortaali/static/media/hirsityö.0e0f8704.jpg"
+  },
+  {
+    "revision": "1e943ee147867a5586f03a7007048f45",
+    "url": "/WebPortaali/static/media/korjuukone2.1e943ee1.jpg"
   },
   {
     "revision": "3ab7b7b37dac797cb5f46381b21356bd",
     "url": "/WebPortaali/static/media/kahvila.3ab7b7b3.jpg"
   },
   {
-    "revision": "5b6be5cced8518169891599264c59073",
+    "revision": "f46101323714379386975cbf93764d7f",
     "url": "/WebPortaali/index.html"
   }
 ];
