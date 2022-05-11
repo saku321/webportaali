@@ -1,7 +1,7 @@
 {
   "main.css": "/WebPortaali/static/css/main.e205e64b.chunk.css",
-  "main.js": "/WebPortaali/static/js/main.d63ddb6a.chunk.js",
-  "main.js.map": "/WebPortaali/static/js/main.d63ddb6a.chunk.js.map",
+  "main.js": "/WebPortaali/static/js/main.803f971d.chunk.js",
+  "main.js.map": "/WebPortaali/static/js/main.803f971d.chunk.js.map",
   "static/js/1.7127b45b.chunk.js": "/WebPortaali/static/js/1.7127b45b.chunk.js",
   "static/js/1.7127b45b.chunk.js.map": "/WebPortaali/static/js/1.7127b45b.chunk.js.map",
   "static/js/2.6bbbfecd.chunk.js": "/WebPortaali/static/js/2.6bbbfecd.chunk.js",
@@ -22,6 +22,6 @@
   "static/media/yritykset.css": "/WebPortaali/static/media/kahvila.3ab7b7b3.jpg",
   "static/css/main.e205e64b.chunk.css.map": "/WebPortaali/static/css/main.e205e64b.chunk.css.map",
   "index.html": "/WebPortaali/index.html",
-  "precache-manifest.5c8a0fec119021c5c6b9767047e2062a.js": "/WebPortaali/precache-manifest.5c8a0fec119021c5c6b9767047e2062a.js",
+  "precache-manifest.56e874afaad4f9dc592ece42c9e06d3d.js": "/WebPortaali/precache-manifest.56e874afaad4f9dc592ece42c9e06d3d.js",
   "service-worker.js": "/WebPortaali/service-worker.js"
 }
