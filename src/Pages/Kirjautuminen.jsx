@@ -25,6 +25,7 @@ const Kirjautuminen=()=>{
             method: "password",
             emailOrUsername: kayttaja,
             password: salis,
+            redirect:"/Webportaali"
         }).catch((error) => {
             document.getElementById("alert").style.display = "flex";
         });

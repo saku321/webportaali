@@ -51,7 +51,7 @@ function Main() {
             
                 
                 <Routes>
-                    <Route path='/' exact element={<Etusivu />} />
+                    <Route path='/WebPortaali' exact element={<Etusivu />} />
                     <Route path="/kirjaudu" element={<Kirjautuminen />} />
                         <Route path="/register" element={<Registerpage />} />
                         <Route path="/yritykset" element={<Yritykset />} />

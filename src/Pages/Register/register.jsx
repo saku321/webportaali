@@ -32,7 +32,8 @@ const Registerpage = () => {
             method: "password",
             email: sahkoposti,
             password: salis,
-            username:kayttaja,
+            username: kayttaja,
+            redirect: "/Webportaali"
            
         }).catch((error)=>{
             document.getElementById("regAlert").style.display = "flex";
