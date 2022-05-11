@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/webportaali/static/media/kahvila.3ab7b7b3.jpg"
   },
   {
-    "revision": "270c3a84055616a6b3c18a8250993a8e",
+    "revision": "8aee98d6f177066e126a734a12a4da30",
     "url": "/webportaali/index.html"
   }
 ];
