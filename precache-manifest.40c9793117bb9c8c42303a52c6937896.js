@@ -64,12 +64,12 @@ self.__precacheManifest = [
     "url": "/static/media/add-user.f33eca0d.png"
   },
   {
-    "revision": "0e0f8704d3914d88dafbb3295db375d4",
-    "url": "/static/media/hirsityö.0e0f8704.jpg"
-  },
-  {
     "revision": "1e943ee147867a5586f03a7007048f45",
     "url": "/static/media/korjuukone2.1e943ee1.jpg"
+  },
+  {
+    "revision": "0e0f8704d3914d88dafbb3295db375d4",
+    "url": "/static/media/hirsityö.0e0f8704.jpg"
   },
   {
     "revision": "3ab7b7b37dac797cb5f46381b21356bd",
