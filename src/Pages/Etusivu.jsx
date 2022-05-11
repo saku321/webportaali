@@ -39,8 +39,8 @@ const Etusivu = () => {
                         showBullets={false}
                         showNavs={true}
                         autoPlay={true}
-                        style={{ margin:"auto"}}
-                       
+                        style={{ margin: "auto" }}
+                        autoPlayDelay={5}
                     />
 
                 </div>

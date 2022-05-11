@@ -3,60 +3,61 @@ import './register.css';
 import Button from '@mui/material/Button';
 import icon from '../../img/add-user.png';
 import axios from 'axios';
+import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
-import Userfront from "@userfront/core";
-Userfront.init("demo1234");
+import Userfront from "@userfront/react";
+
+
+Userfront.init("5nxg7gvb");
+
 const Registerpage = () => {
     const [kayttaja, setKayttaja] = useState("");
-    const [passu, setPassu] = useState("");
-    const [kirjautunutStatus, setKirjautunutStatus] = useState("");
-
-    const changeKayttaja = (e) => {
+    const [salis, setSalis] = useState("");
+    const [sahkoposti, setEmail] = useState("");
+    const [alertMsg, setAlertMsg] = useState("");
+    const inputKayttaja = (e) => {
         setKayttaja(e.target.value);
     }
-    const changePassu = (e) => {
-        setPassu(e.target.value);
+    const inputSalis = (e) => {
+        setSalis(e.target.value);
+    }
+    const inputEmail = (e) => {
+        setEmail(e.target.value);
     }
 
-    const submitData = (e) => {
+    
+    const kirjaudu = (e) => {
         e.preventDefault();
         Userfront.signup({
             method: "password",
-            email:"email@gmail.com",
-            password: passu,
-            data: {
-                accountName: kayttaja,
-            },
+            email: sahkoposti,
+            password: salis,
+            username:kayttaja,
+           
+        }).catch((error)=>{
+            document.getElementById("regAlert").style.display = "flex";
+            console.log(error);
+            if (error == "Error: Email format is invalid") {
+                setAlertMsg("Sähköpostisi on väärin!");
+            } else if (error == "Error: Password must be at least 16 characters OR at least 8 characters including a number and a letter") {
+                setAlertMsg("Tarkista salasana!");
+            } else {
+                setAlertMsg("Jotain meni pieleen, kokeile eri käyttäjänimeä!");
+            }
         });
     }
-    const inputComponents = {
-        pattern: "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-öA-Ö0-9!@#$%^&*]{8,}$",
-        title: "Salasanan täytyy olla vähintään 8merkkiä pitkä, sekä salasanassa täytyy olla vähintään yksi isokirjain, vähintään yksi numero ja yksi erikoismerkki!",
-
-    };
     return (
         <div id="registerDiv">
-            <form >
-                <img src={icon} alt="icon"/>
+            <form>
+                <img src={icon} alt="icon" />
 
-                <TextField onChange={changeKayttaja} type="text" label="Käyttäjänimi" autoComplete="off" id="userName" name="userName" fullWidth />
-                <TextField inputProps={inputComponents} onChange={changePassu} fullWidth label="Salasana" type="password" id="passWrd" name="passWrd" autoComplete="off" />
-
-                <div id="kirjautumisAlert"><h1 >{kirjautunutStatus}</h1></div>
-
-                <p><b>Huom!</b> <br />Salasanan täytyy olla vähintään 8 merkkiä pitkä, sekä siinä täytyy olla vähintään yksi isokirjain, vähintään yksi numero ja yksi erikoismerkki!</p>
-                <Button
-                    type="submit"
-                    id="registerButton"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                    onClick={submitData}
-                >
-                    Rekisteröidy
-                </Button>
-                <a href="#">Onko sinulla jo käyttäjä?</a>
-
+                <TextField onChange={inputKayttaja} label="Käyttäjänimi" variant="outlined" fullWidth autoComplete="off"/>
+                <TextField onChange={inputSalis} label="Salasana" variant="outlined" fullWidth type="password" autoComplete="off"/>
+                <TextField onChange={inputEmail} label="Email" variant="outlined" fullWidth type="email" autoComplete="off" />
+                <p><b>Huom!</b><br></br>
+                    Salasanan täytyy olla vähintään 8merkkiä pitkä, sisältää vähintään yhden numeron ja yhden isonkirjaimen!</p>
+                <Alert id="regAlert" severity="error">{alertMsg}</Alert>
+                <Button variant="contained" onClick={kirjaudu}>Rekisteröidy</Button>
                 </form>
             </div>
         )

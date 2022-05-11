@@ -31,9 +31,12 @@
 
 #registerDiv img{
     width:20%;
-    margin-bottom:50px;
+    margin-bottom:20px;
 }
 #registerDiv p{
     float:left;
     text-align:left;
+}
+#regAlert{
+    display:none;
 }

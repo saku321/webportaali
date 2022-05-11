@@ -11,3 +11,6 @@
         margin-top: 3%;
         font-family: 'Roboto', sans-serif;
 }
+#alert{
+    display:none;
+}
