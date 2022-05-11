@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "4a67a4c7c0a021fb541d",
+    "revision": "4fddf2920341e26e9612",
     "url": "/static/css/main.fd7df807.chunk.css"
   },
   {
-    "revision": "4a67a4c7c0a021fb541d",
-    "url": "/static/js/main.4a67a4c7.chunk.js"
+    "revision": "4fddf2920341e26e9612",
+    "url": "/static/js/main.4fddf292.chunk.js"
   },
   {
     "revision": "7127b45b886c0924a91b",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/static/media/kahvila.3ab7b7b3.jpg"
   },
   {
-    "revision": "22031266daa7e0c5beb381954b5c5d74",
+    "revision": "1adb63c857b15aec9d54c0690a64ad74",
     "url": "/index.html"
   }
 ];
