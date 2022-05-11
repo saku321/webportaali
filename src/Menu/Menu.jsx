@@ -30,7 +30,7 @@ function Menu() {
         <div id='menuDiv'>
                 <ul id='menuUl'>
 
-                    <li><Link to="/">Etusivu</Link></li>
+                    <li><Link to="/WebPortaali">Etusivu</Link></li>
                     
                     <li id="palvelut">
                         <a href="#">Palvelut</a>
