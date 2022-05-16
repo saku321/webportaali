@@ -1,0 +1,138 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+#dashBoardDiv {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top:5%;
+}
+#lisääMainosDiv {
+    width: 100%;
+    margin-top: 150px;
+}
+
+
+#dashBoardDiv h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+}
+
+#bottomLine1 {
+    height: 1px;
+    background-color: #E0E0E0;
+    width: 100%;
+}
+#dashBoardDiv ul {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+#dashBoardDiv ul li {
+    list-style: none;
+    width: 100%;
+
+    min-height: 350px;
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    margin:30px;
+
+}
+.rightImg{
+    float: right;
+    width: 48%;
+    margin-bottom: 0px;
+    height: 350px;
+}
+
+.rightImg img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 8px;
+}
+
+.leftText {
+    float: left;
+    width: 49%;
+    word-wrap: break-word;
+    min-height: 340px;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+.leftText h1 {
+        font-size: 28px;
+        text-align: left;
+        margin-left: 20px;
+        font-family: 'Montserrat', sans-serif;
+}
+
+.leftText p {
+        text-align: left;
+        margin: 20px;
+        max-height: 300px;
+        max-height: 20ch;
+        overflow: hidden;
+        font-size: 20px;
+        white-space: pre-wrap;
+        line-height: 30px;
+}
+
+.leftText a {
+        float: left;
+        margin-left: 20px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        text-decoration: none;
+        color: #00A79D;
+}
+.leftText Button{
+    float:left;
+    margin:20px;
+}
+.leftText a:hover {
+        text-decoration: underline;
+}
+/*mainoksen teksit*/
+#mainoksenOtsikko{
+}
+#mainoksenKuvaus{
+}
+#mainosKuva{
+    display:none;
+}
+
+
+#uploadInput {
+    margin:auto;
+    margin:20px;
+    float:right;
+}
+#toolDiv{
+    
+}
+#toolDiv Button{
+    float:left;
+    margin:20px;
+  
+}
+#mainoksesi {
+   
+    width: 100%;
+    margin-top: 150px;
+
+}
+#mainoksesi ul {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+#mainoksesi ul li {
+    list-style: none;
+    width: 100%;
+    min-height: 350px;
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    margin: 30px;
+}

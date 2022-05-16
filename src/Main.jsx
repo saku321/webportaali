@@ -1,6 +1,6 @@
 ﻿import './Main.css';
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 /*menut*/
 import Menu from './Menu/Menu.jsx';
 import Navbar from './Menu/navbar.jsx'
@@ -11,7 +11,7 @@ import Registerpage from './Pages/Register/register.jsx';
 import Yritykset from './Pages/Yritykset.jsx';
 import Tontit from './Pages/Tontit.jsx';
 import Kirjautuminen from './Pages/Kirjautuminen.jsx';
-
+import DashBoard from './Pages/dashboard.jsx';
 import {
     Navigate,
     useLocation
@@ -19,20 +19,15 @@ import {
 import Userfront from "@userfront/react";
 Userfront.init("5nxg7gvb");
 
-function Dashboard() {
-    return (
-        <div>
-          <p>dashboard</p>
-          
-        </div>
-    );
-}
+
 function RequireAuth({ children }) {
     let location = useLocation();
-    if (!Userfront.tokens.accessToken) {
+    const admin = Userfront.user.hasRole("admin");
+    const editor = Userfront.user.hasRole("editor");
+    if (!admin && !editor) {
         // Redirect to the /login page
-        return <Navigate to="/kirjaudu" state={{ from: location }} replace />;
-    }
+        return <Navigate to="/webportaali" state={{ from: location }} replace />;
+    } 
 
     return children;
 }
@@ -51,14 +46,14 @@ function Main() {
             
                 
                 <Routes>
-                    <Route path='/WebPortaali' exact element={<Etusivu />} />
+                    <Route path='/webportaali' exact element={<Etusivu />} />
                     <Route path="/kirjaudu" element={<Kirjautuminen />} />
                         <Route path="/register" element={<Registerpage />} />
                         <Route path="/yritykset" element={<Yritykset />} />
                     <Route path="/tontit" element={<Tontit />} />
                     <Route path="/dashboard" element={
                         <RequireAuth>
-                            <Dashboard />
+                            <DashBoard />
                         </RequireAuth>
                     } />
                     </Routes>

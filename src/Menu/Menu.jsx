@@ -1,20 +1,7 @@
 ﻿import './Menu.css';
 import React from "react";
-import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from "react-router-dom";
 
-/*Lisää nappeihin oikean värin*/ 
-const theme = createTheme({
-   
-    palette: {
-       
-        neutral: {
-            main: '#36918E',
-            contrastText: '#fff',
-        },
-    },
-});
 
 
 
@@ -30,7 +17,7 @@ function Menu() {
         <div id='menuDiv'>
                 <ul id='menuUl'>
 
-                    <li><Link to="/WebPortaali">Etusivu</Link></li>
+                    <li><Link to="/webportaali">Etusivu</Link></li>
                     
                     <li id="palvelut">
                         <a href="#">Palvelut</a>

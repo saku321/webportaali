@@ -2,7 +2,7 @@
   "name": "webportaali",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://saku321.github.io/WebPortaali",
+  "homepage": "https://saku321.github.io/webportaali",
   "dependencies": {
     "-": "^0.0.1",
     "@emotion/react": "^11.8.2",

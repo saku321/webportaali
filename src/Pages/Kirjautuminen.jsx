@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
@@ -25,7 +24,7 @@ const Kirjautuminen=()=>{
             method: "password",
             emailOrUsername: kayttaja,
             password: salis,
-            redirect:"/Webportaali"
+            redirect:"/webportaali"
         }).catch((error) => {
             document.getElementById("alert").style.display = "flex";
         });

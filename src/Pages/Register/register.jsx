@@ -2,7 +2,7 @@
 import './register.css';
 import Button from '@mui/material/Button';
 import icon from '../../img/add-user.png';
-import axios from 'axios';
+
 import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
 import Userfront from "@userfront/react";
@@ -38,9 +38,9 @@ const Registerpage = () => {
         }).catch((error)=>{
             document.getElementById("regAlert").style.display = "flex";
             console.log(error);
-            if (error == "Error: Email format is invalid") {
+            if (error === "Error: Email format is invalid") {
                 setAlertMsg("Sähköpostisi on väärin!");
-            } else if (error == "Error: Password must be at least 16 characters OR at least 8 characters including a number and a letter") {
+            } else if (error === "Error: Password must be at least 16 characters OR at least 8 characters including a number and a letter") {
                 setAlertMsg("Tarkista salasana!");
             } else {
                 setAlertMsg("Jotain meni pieleen, kokeile eri käyttäjänimeä!");

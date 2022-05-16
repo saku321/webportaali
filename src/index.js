@@ -4,7 +4,6 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 import Main from './Main';
-import Handler from './handler.jsx';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Main />);
 

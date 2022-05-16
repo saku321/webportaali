@@ -11,7 +11,7 @@
 section{
     min-height:120vh;
 }
-/*mainoskorttien tyylimäärittelyt*/
+/*Tapahtumakorttien tyylimäärittelyt*/
 
 #tapahtumaKortit ul {
     display: inline-flex;
@@ -62,7 +62,7 @@ section{
     margin-top:50px;
 }
 
-/*text divi*/
+/*mainos divi*/
 #mainosDiv {
     width: 100%;
     margin-top: 100px;
