@@ -1,4 +1,4 @@
-﻿eiimport React ,{ useState }from "react";
+﻿import React ,{ useState }from "react";
 import './register.css';
 import Button from '@mui/material/Button';
 import icon from '../../img/add-user.png';
@@ -33,7 +33,7 @@ const Registerpage = () => {
             email: sahkoposti,
             password: salis,
             username: kayttaja,
-            redirect: "/Webportaali"
+            redirect: "/webportaali"
            
         }).catch((error)=>{
             document.getElementById("regAlert").style.display = "flex";
