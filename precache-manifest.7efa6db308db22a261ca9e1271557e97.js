@@ -1,27 +1,27 @@
 self.__precacheManifest = [
   {
-    "revision": "95ecf0df6024b1d89420",
-    "url": "/webportaali/static/css/main.a92fe552.chunk.css"
+    "revision": "3bc10a1f919192e108db",
+    "url": "/webportaali/static/css/main.0e49e001.chunk.css"
   },
   {
-    "revision": "95ecf0df6024b1d89420",
-    "url": "/webportaali/static/js/main.95ecf0df.chunk.js"
+    "revision": "3bc10a1f919192e108db",
+    "url": "/webportaali/static/js/main.3bc10a1f.chunk.js"
   },
   {
-    "revision": "7127b45b886c0924a91b",
-    "url": "/webportaali/static/js/1.7127b45b.chunk.js"
+    "revision": "3596aba066ef29cec558",
+    "url": "/webportaali/static/js/1.3596aba0.chunk.js"
   },
   {
-    "revision": "6bbbfecdf7598610b14c",
-    "url": "/webportaali/static/js/2.6bbbfecd.chunk.js"
+    "revision": "53b48a69606829b3b91e",
+    "url": "/webportaali/static/js/2.53b48a69.chunk.js"
   },
   {
-    "revision": "1ee7fd453ef90677deb6",
-    "url": "/webportaali/static/js/runtime~main.1ee7fd45.js"
+    "revision": "46907a0d34e91ca5cdbe",
+    "url": "/webportaali/static/js/runtime~main.46907a0d.js"
   },
   {
-    "revision": "cd39d16ed4075d86b493dff7c950bab9",
-    "url": "/webportaali/static/media/hitsari.cd39d16e.jpg"
+    "revision": "a9b76b5c1a1e64decaf776be169f1b44",
+    "url": "/webportaali/static/media/lapset.a9b76b5c.jpg"
   },
   {
     "revision": "731cb6a316948530f4bb1070aa042255",
@@ -52,8 +52,8 @@ self.__precacheManifest = [
     "url": "/webportaali/static/media/rakentaja.8217a24d.jpg"
   },
   {
-    "revision": "a9b76b5c1a1e64decaf776be169f1b44",
-    "url": "/webportaali/static/media/lapset.a9b76b5c.jpg"
+    "revision": "cd39d16ed4075d86b493dff7c950bab9",
+    "url": "/webportaali/static/media/hitsari.cd39d16e.jpg"
   },
   {
     "revision": "bd4ffd74d46f011e8a5b54012d87041f",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/webportaali/static/media/kahvila.3ab7b7b3.jpg"
   },
   {
-    "revision": "8aee98d6f177066e126a734a12a4da30",
+    "revision": "837b76f57e4911f21780cb10c43af43f",
     "url": "/webportaali/index.html"
   }
 ];
