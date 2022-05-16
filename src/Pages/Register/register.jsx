@@ -1,4 +1,4 @@
-﻿import React ,{ useState }from "react";
+﻿eiimport React ,{ useState }from "react";
 import './register.css';
 import Button from '@mui/material/Button';
 import icon from '../../img/add-user.png';
@@ -43,7 +43,7 @@ const Registerpage = () => {
             } else if (error === "Error: Password must be at least 16 characters OR at least 8 characters including a number and a letter") {
                 setAlertMsg("Tarkista salasana!");
             } else {
-                setAlertMsg("Jotain meni pieleen, kokeile eri käyttäjänimeä!");
+                setAlertMsg("Jotain meni pieleen, kokeile eri käyttäjänimeä tai sähköpostia!");
             }
         });
     }
