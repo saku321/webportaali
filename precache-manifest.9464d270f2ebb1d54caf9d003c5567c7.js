@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "fbb913e2964bd6fec81e",
+    "revision": "b24770f984336fa56540",
     "url": "/webportaali/static/css/main.933e4249.chunk.css"
   },
   {
-    "revision": "fbb913e2964bd6fec81e",
-    "url": "/webportaali/static/js/main.fbb913e2.chunk.js"
+    "revision": "b24770f984336fa56540",
+    "url": "/webportaali/static/js/main.b24770f9.chunk.js"
   },
   {
     "revision": "3596aba066ef29cec558",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/webportaali/static/media/kahvila.3ab7b7b3.jpg"
   },
   {
-    "revision": "3c9b679605ec74bcb6fdce3ff8d32cc4",
+    "revision": "1b0843bbfe0fe24be4f41bbf6e4f07ed",
     "url": "/webportaali/index.html"
   }
 ];
