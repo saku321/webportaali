@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "3bc10a1f919192e108db",
-    "url": "/webportaali/static/css/main.0e49e001.chunk.css"
+    "revision": "fbb913e2964bd6fec81e",
+    "url": "/webportaali/static/css/main.933e4249.chunk.css"
   },
   {
-    "revision": "3bc10a1f919192e108db",
-    "url": "/webportaali/static/js/main.3bc10a1f.chunk.js"
+    "revision": "fbb913e2964bd6fec81e",
+    "url": "/webportaali/static/js/main.fbb913e2.chunk.js"
   },
   {
     "revision": "3596aba066ef29cec558",
     "url": "/webportaali/static/js/1.3596aba0.chunk.js"
   },
   {
-    "revision": "53b48a69606829b3b91e",
-    "url": "/webportaali/static/js/2.53b48a69.chunk.js"
+    "revision": "564e3e8e8c91e3cd6c91",
+    "url": "/webportaali/static/js/2.564e3e8e.chunk.js"
   },
   {
     "revision": "46907a0d34e91ca5cdbe",
@@ -48,14 +48,6 @@ self.__precacheManifest = [
     "url": "/webportaali/static/media/herkukankorjuu.2702f392.jpg"
   },
   {
-    "revision": "8217a24d9760cdc9f420f235014a121c",
-    "url": "/webportaali/static/media/rakentaja.8217a24d.jpg"
-  },
-  {
-    "revision": "cd39d16ed4075d86b493dff7c950bab9",
-    "url": "/webportaali/static/media/hitsari.cd39d16e.jpg"
-  },
-  {
     "revision": "bd4ffd74d46f011e8a5b54012d87041f",
     "url": "/webportaali/static/media/lapset_vesi.bd4ffd74.jpg"
   },
@@ -64,19 +56,27 @@ self.__precacheManifest = [
     "url": "/webportaali/static/media/add-user.f33eca0d.png"
   },
   {
-    "revision": "1e943ee147867a5586f03a7007048f45",
-    "url": "/webportaali/static/media/korjuukone2.1e943ee1.jpg"
+    "revision": "8217a24d9760cdc9f420f235014a121c",
+    "url": "/webportaali/static/media/rakentaja.8217a24d.jpg"
+  },
+  {
+    "revision": "cd39d16ed4075d86b493dff7c950bab9",
+    "url": "/webportaali/static/media/hitsari.cd39d16e.jpg"
   },
   {
     "revision": "0e0f8704d3914d88dafbb3295db375d4",
     "url": "/webportaali/static/media/hirsityö.0e0f8704.jpg"
   },
   {
+    "revision": "1e943ee147867a5586f03a7007048f45",
+    "url": "/webportaali/static/media/korjuukone2.1e943ee1.jpg"
+  },
+  {
     "revision": "3ab7b7b37dac797cb5f46381b21356bd",
     "url": "/webportaali/static/media/kahvila.3ab7b7b3.jpg"
   },
   {
-    "revision": "837b76f57e4911f21780cb10c43af43f",
+    "revision": "3c9b679605ec74bcb6fdce3ff8d32cc4",
     "url": "/webportaali/index.html"
   }
 ];
