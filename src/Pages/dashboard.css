@@ -4,7 +4,7 @@
 #dashBoardDiv {
     margin-right: 10%;
     margin-left: 10%;
-    margin-top:5%;
+    margin-top:3%;
 }
 #lisääMainosDiv {
     width: 100%;
@@ -17,7 +17,7 @@
     text-align: left;
 }
 
-#bottomLine1 {
+.bottomLine1 {
     height: 1px;
     background-color: #E0E0E0;
     width: 100%;
@@ -25,13 +25,14 @@
 #dashBoardDiv ul {
     display: inline-flex;
     flex-wrap: wrap;
+    width:100%;
 }
 
 #dashBoardDiv ul li {
     list-style: none;
     width: 100%;
 
-    min-height: 350px;
+    min-height: 500px;
     border-radius: 8px;
     border: 1px solid #d1d1d1;
     margin:30px;
@@ -41,21 +42,21 @@
     float: right;
     width: 48%;
     margin-bottom: 0px;
-    height: 350px;
+    height: 500px;
 }
 
 .rightImg img {
-        width: 100%;
-        height: 350px;
-        object-fit: cover;
-        border-radius: 8px;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .leftText {
     float: left;
     width: 49%;
     word-wrap: break-word;
-    min-height: 340px;
+    min-height: 490px;
     position: relative;
     font-family: 'Roboto', sans-serif;
 }
@@ -67,15 +68,15 @@
         font-family: 'Montserrat', sans-serif;
 }
 
-.leftText p {
-        text-align: left;
-        margin: 20px;
-        max-height: 300px;
-        max-height: 20ch;
-        overflow: hidden;
-        font-size: 20px;
-        white-space: pre-wrap;
-        line-height: 30px;
+.leftTextDivP {
+    text-align: left;
+    margin: 20px;
+    max-height: 300px;
+    max-height: 20ch;
+    overflow: hidden;
+    font-size: 20px;
+    white-space: pre-wrap;
+    line-height: 30px;
 }
 
 .leftText a {
@@ -87,8 +88,12 @@
         text-decoration: none;
         color: #00A79D;
 }
+.yhteystiedot {
+   
+    color: #00A79D;
+    
+}
 .leftText Button{
-    float:left;
     margin:20px;
 }
 .leftText a:hover {
@@ -131,8 +136,27 @@
 #mainoksesi ul li {
     list-style: none;
     width: 100%;
-    min-height: 350px;
+    min-height: 500px;
     border-radius: 8px;
     border: 1px solid #d1d1d1;
     margin: 30px;
+}
+#deleteMainosBtn {
+    margin-bottom: 0px;
+    float:right;
+    transform:translateY(-40px);
+}
+#deleteMainosBtn:hover {
+    transform: translateY(-40px) scale(1.01);
+}
+#julkaiseMainosBtn {
+    margin-bottom: 0px;
+    float: right;
+    transform: translateY(-40px);
+    margin-right:25px;
+}
+#mainosAlert{
+    width:30%;
+    margin:auto;
+    font-size:20px;
 }

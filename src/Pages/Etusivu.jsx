@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useState } from "react";
 import './Etusivu.css';
 /*kuvat*/
 import maisema from '../img/kuvia_Multia/maisema.jpg';
@@ -10,7 +10,8 @@ import rakentaja from '../img/kuvia_Multia/rakentaja.jpg';
 import hitsari from '../img/kuvia_Multia/hitsari.jpg';
 import lapset from '../img/kuvia_Multia/lapset.jpg';
 import lapset_vesi from '../img/kuvia_Multia/lapset_vesi.jpg';
-
+import axios from 'axios';
+import Userfront from "@userfront/react";
 
 import SimpleImageSlider from "react-simple-image-slider";
 const images = [
@@ -25,6 +26,25 @@ const images = [
 
 
 const Etusivu = () => {
+
+    const [resData, setData] = useState([]);
+    const [mainoksetHaettu, setMainoksetHaettu] = useState(false);
+    const HaeMainokset = () => {
+        axios.post('http://localhost:3001/haeKaikkiMainokset', {
+            
+        }).then((res) => {
+
+            setData(res.data);
+            setMainoksetHaettu(true);
+        }).catch((err) => {
+            console.log(err);
+        });
+
+
+    }
+    if (!mainoksetHaettu) {
+        HaeMainokset();
+    }
     return (
         <div id="etusivuDiv">
 
@@ -84,28 +104,23 @@ const Etusivu = () => {
                     <div id="bottomLine2"></div>
                     {/*Mainoksien laatikot*/}
                     <ul>
-                        <li>
-                            <div id="leftImgDiv">
-                                <img src={hitsari} alt="mainosKuva" />
-                            </div>
-                            <div id="leftTextDiv">
-                                <h1>Multian alueelle etsitään kokenutta hitsaajaa </h1>
-                                <p>Soita ja kysy työstä puh.0202020  </p>
-                                <a href="#">Lue lisää </a>
-                            </div>
-                        </li>
+                        {resData.map(resData =>
+                            <li key={resData.id}>
 
-                        <li>
-                            <div id="leftImgDiv">
-                                <img src={rakentaja} alt="mainosKuva" />
-                            </div>
-                            <div id="leftTextDiv">
-                                <h1>Multian kunta myy rantatontteja</h1>
-                                <p>Tontit sijaitsevat n. kilometrin päässä multian keskustasta. <br></br>Tonti ovat kooltaan 300-900 neliömetriä</p>
-                                <a href="#">Lue lisää </a>
-                            </div>
-                        </li>
+                                <div className="rightImg">
 
+                                    <img src={resData.KuvaUrl} alt="mainosKuva" />
+
+                                </div>
+                                <div className="leftText">
+                                    <h1>{resData.Otsikko}</h1>
+                                    <p>{resData.Kuvaus}</p>
+                                    <a href={"https://" + resData.SivunUrl} target="_blank">{resData.SivunUrl}</a>
+                                    <p className="yhteystiedot">{resData.Yhteystiedot}</p>
+                                </div>
+
+                            </li>
+                        )}
                     </ul>
                
                     

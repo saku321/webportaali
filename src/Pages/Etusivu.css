@@ -79,6 +79,7 @@ section{
 #mainosDiv ul {
     display: inline-flex;
     flex-wrap: wrap;
+    width:100%;
 }
 #mainosDiv li {
     list-style: none;
@@ -89,35 +90,35 @@ section{
     border: 1px solid #d1d1d1;
 }
 
-#leftImgDiv {
+.rightImg {
     float: right;
     width: 48%;
     margin-bottom:0px;
-    height:350px;
+    height:500px;
 }
-#leftImgDiv img{
+.rightImg img{
     width:100%;
-    height:350px;
+    height:500px;
     object-fit:cover;
     border-radius:8px;
 
 }
-#leftTextDiv {
+.leftText {
     float: left;
     width: 49%;
     word-wrap: break-word;
-    min-height: 340px;
+    min-height: 490px;
     position: relative;
     font-family: 'Roboto', sans-serif;
     
 }
-#leftTextDiv h1{
+.leftText h1{
    font-size:28px;
    text-align:left;
    margin-left:20px;
     font-family: 'Montserrat', sans-serif;
 }
-#leftTextDiv p{
+.leftText p{
     text-align:left;
     margin:20px;
     max-height:300px;
@@ -127,7 +128,7 @@ section{
     white-space: pre-wrap;
    line-height:30px;
 }
-#leftTextDiv a{
+.leftText a{
     float:left;
     margin-left:20px;
     position:absolute;
@@ -136,6 +137,9 @@ section{
     text-decoration:none;
     color:#00A79D;
 }
-#leftTextDiv a:hover{
+.leftText a:hover{
     text-decoration:underline;
+}
+.yhteystiedot {
+    color: #00A79D;
 }
