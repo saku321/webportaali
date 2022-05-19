@@ -4,7 +4,7 @@
 #menuDiv {
     height: 100px;
    
-
+    width:100%;
    
     margin-top: 10px;
     
@@ -12,6 +12,7 @@
 #menuUl{
     margin:0px;
     display:inline-flex;
+    flex-wrap:wrap;
 }
 
 #menuUl li{
@@ -85,4 +86,22 @@
 }
 #harrastukset:hover #harrastuksetDropDown {
     display: block;
+}
+@media only screen and (max-width: 600px) {
+    #menuDiv {
+        width: 100%;
+    }
+
+    #menuUl {
+        text-align: center;
+    }
+
+    #headerDiv {
+        width: 100%;
+        margin-left: 25px;
+    }
+
+    #menuUl li {
+        margin: 20px;
+    }
 }

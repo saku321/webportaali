@@ -72,19 +72,31 @@ const Etusivu = () => {
 
             <section>
                 <div id="mainosShow">
-
+                    <div id="pcImgSlider">
                     <SimpleImageSlider
                         
-                        width={1050}
-                        height={504}
+                            width={1150}
+                            height={604}
                         images={images}
                         showBullets={false}
                         showNavs={true}
-                        autoPlay={true}
-                        style={{ margin: "auto" }}
-                        autoPlayDelay={5}
+                            autoPlay={true}
+                            style={{margin:"auto"}}
+                        autoPlayDelay={8}
                     />
+                    </div>
+                    <div id="phoneImgSlider">
+                        <SimpleImageSlider
 
+                            width={"100%"}
+                            height={"600px"}
+                            images={images}
+                            showBullets={false}
+                            showNavs={true}
+                            autoPlay={true}
+                            autoPlayDelay={8}
+                        />
+                        </div>
                 </div>
                 <div id="tapahtumaKortit">
                     <h1 id="tapahtumatH1">Tapahtumat</h1>
@@ -114,7 +126,7 @@ const Etusivu = () => {
                     <div id="bottomLine2"></div>
                     {/*Mainoksien laatikot*/}
                     <ul>
-                        {resData == "" && (
+                        {resData === "" && (
                             <p>Ei mainoksia!</p>
                         )}
                         {resData.map(resData =>
@@ -128,7 +140,7 @@ const Etusivu = () => {
                                 <div className="leftText">
                                     <h1>{resData.Otsikko}</h1>
                                     <p>{resData.Kuvaus}</p>
-                                    <a href={"https://" + resData.SivunUrl} target="_blank">{resData.SivunUrl}</a>
+                                    <a href={"https://" + resData.SivunUrl} target="_blank" rel="noopener noreferrer">{resData.SivunUrl}</a>
                                     <p className="yhteystiedot">{resData.Yhteystiedot}</p>
                                 </div>
 

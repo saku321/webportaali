@@ -34,8 +34,10 @@ const Kirjautuminen=()=>{
             <div id="loginDiv">
                 <form>
                     <h1>Kirjaudu sis&#228;&#228;n</h1>
+                    <br></br>
                     <TextField onChange={inputKayttaja} label="K&#228;ytt&#228;j&#228;nimi" variant="outlined" fullWidth autoComplete="off" />
                     <br></br>
+                    <br></br> 
                     <br></br>
                     <TextField onChange={inputSalis} label="Salasana" variant="outlined" fullWidth type="password" autoComplete="off" />
                     <br></br>

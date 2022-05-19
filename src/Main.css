@@ -1,6 +1,5 @@
-﻿body {
+﻿
 
-}
 #mainDiv{
     text-align:center;
     margin-left:5%;
@@ -17,3 +16,10 @@
     height:100%;
 }
 
+@media only screen and (max-width: 600px) {
+
+    #mainDiv{
+        margin:0px;
+
+    }
+}

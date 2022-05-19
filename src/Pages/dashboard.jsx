@@ -401,7 +401,7 @@ function DashBoard() {
                     {showAlert && (
                         <Alert id="mainosAlert" variant="filled" variant="filled" severity="error" onClose={() => { setAlertStatus(false); }}>{alertMsg}</Alert>
                     )}
-                    <ul>
+                  
 
                         <li>
 
@@ -426,7 +426,7 @@ function DashBoard() {
 
                             
                         </li>
-                    </ul>
+                    
                 </div>
             )}
             {/*omat tapahtumat*/}

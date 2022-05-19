@@ -177,10 +177,8 @@
     width: 100%;
     margin-top: 150px;
 }
-#lisääTapahtumaDiv ul {
-    width:100%;
-}
-#lisääTapahtumaDiv ul li{
+
+#lisääTapahtumaDiv li{
 
     list-style: none;
     width: 30%;
@@ -248,3 +246,91 @@
     font-size: 22px;
     word-wrap:anywhere;
 }
+@media only screen and (max-width: 600px) {
+    #dashBoardDiv {
+        margin-top:20%;
+    }
+    /*tapahtumat*/
+    #lisääTapahtumaDiv{
+        margin-top:55%;
+    }
+
+    #lisääTapahtumaDiv li {
+        width: 100%;
+
+    }
+    
+    #tapahtumat ul li{
+        width:100%;
+    }
+    #tapahtumat ul {
+        margin-left: -30px;
+    }
+    #tapahtumat h1{
+        margin-top:250px;
+    } 
+    /*mainokset*/
+    #lisääMainosDiv{
+    }
+
+    
+
+    #mainoksesi ul li {
+        width: 100%;
+        margin:0px;
+        margin-bottom:50px;
+
+    }
+   
+    .leftText{
+        min-height:inherit;
+        
+    }
+   
+   
+    .rightImg {
+    }
+    #mainoksesi ul {
+        margin-left: -30px;
+    }
+    #mainoksesi h1 {
+        margin-top: 250px;
+    }
+    /*mainos buttonit*/
+    #editMainosBtn {
+        transform: translateY(-120px);
+        float: right;
+        margin-right: 0px;
+    }
+
+    #deleteMainosBtn {
+        margin-bottom: 0px;
+        float: right;
+        margin-right:0px;
+        transform: translateY(-10px);
+    }
+
+
+    #julkaiseMainosBtn {
+        margin-bottom: 0px;
+        float: left;
+        transform: translateY(-250px);
+        margin-right: 0px;
+    }
+
+    #deleteMainosBtn:hover {
+        transform: translateY(-40px) scale(1.01);
+    }
+
+    #editMainosBtn:hover {
+        transform: translateY(-40px) scale(1.01);
+    }
+
+    #julkaiseMainosBtn:hover {
+        transform: translateY(-40px) scale(1.01);
+    }
+}
+
+
+
+  
