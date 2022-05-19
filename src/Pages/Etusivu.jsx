@@ -28,7 +28,10 @@ const images = [
 const Etusivu = () => {
 
     const [resData, setData] = useState([]);
+    const [tapahtumaData, setTapahtumaData] = useState([]);
     const [mainoksetHaettu, setMainoksetHaettu] = useState(false);
+    const [tapahtumatHaettu, setTapahtumatHaettu] = useState(false);
+
     const HaeMainokset = () => {
         axios.post('http://localhost:3001/haeKaikkiMainokset', {
             
@@ -42,8 +45,27 @@ const Etusivu = () => {
 
 
     }
+
+    const HaeTapahtuma = () => {
+
+
+        axios.post('http://localhost:3001/haeKaikkiTapahtumat', {
+        }).then((res) => {
+
+            setTapahtumaData(res.data);
+            setTapahtumatHaettu(true);
+        }).catch((err) => {
+            console.log(err);
+        });
+
+
+    }
+
     if (!mainoksetHaettu) {
         HaeMainokset();
+    }
+    if (!tapahtumatHaettu) {
+        HaeTapahtuma();
     }
     return (
         <div id="etusivuDiv">
@@ -69,32 +91,20 @@ const Etusivu = () => {
                     <div id="bottomLine1"></div>
                 <ul>
                         {/*Tapahtumien laatikot*/}
-                        <li>
-                            <img src={markkinat} alt="tapahtumankuva" />
-                        <h1>Esimerkki markkinat</h1>
-                        <p>Esimerkki tapahtumasta</p>
+                        {tapahtumaData.map(tapahtumat =>
+                            <li key={tapahtumat.id}>
 
-                        </li>
+                                    <img src={tapahtumat.KuvaUrl} alt="mainosKuva" />
 
-                        <li>
-                            <img src={melojat} alt="tapahtumankuva" />
-                        <h1>Esimerkki tapahtuma 2</h1>
-                        <p>Esimerkki tapahtumasta</p>
+                                    <h1>{tapahtumat.Otsikko}</h1>
+                                    <p>{tapahtumat.Kuvaus}</p>
+      
+                            </li>
+                        )}
 
-                        </li>
 
-                        <li>
-                            <img src={lapset} alt="tapahtumankuva" />
-                        <h1>Esimerkki tapahtuma 3</h1>
-                        <p>Esimerkki tapahtumasta 3</p>
 
-                        </li>
-                        <li>
-                            <img src={lapset_vesi} alt="tapahtumankuva" />
-                        <h1>Esimerkki tapahtuma 4</h1>
-                        <p>Esimerkki tapahtumasta 4</p>
-
-                    </li> 
+                    
                     </ul>
                 </div>
             </section>
@@ -104,6 +114,9 @@ const Etusivu = () => {
                     <div id="bottomLine2"></div>
                     {/*Mainoksien laatikot*/}
                     <ul>
+                        {resData == "" && (
+                            <p>Ei mainoksia!</p>
+                        )}
                         {resData.map(resData =>
                             <li key={resData.id}>
 

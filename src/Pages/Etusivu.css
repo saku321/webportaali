@@ -9,6 +9,7 @@
 
 }
 section{
+    
     min-height:120vh;
 }
 /*Tapahtumakorttien tyylimäärittelyt*/
@@ -33,6 +34,7 @@ section{
 #tapahtumaKortit li p{
     font-family: 'Roboto', sans-serif;
     font-size:20px;
+    word-wrap:anywhere;
 }
 
 #tapahtumaKortit li img{
@@ -142,4 +144,22 @@ section{
 }
 .yhteystiedot {
     color: #00A79D;
+}
+/*puhelin määritykset*/
+@media only screen and (max-width: 600px) {
+    #mainDiv{
+        width:100%;
+    }
+    section {
+        width: 100%;
+    }
+    #tapahtumaKortit li {
+        width: 100%;
+    }
+    #mainosDiv {
+        width: 100%;
+    }
+    .leftText{
+        width:100%;
+    }
 }

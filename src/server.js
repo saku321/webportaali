@@ -70,7 +70,7 @@ app.post("/luoMainos", (req, res) => {
         const insertData = "INSERT INTO Mainokset (Otsikko,Kuvaus,KuvaUrl,SivunUrl,Haltija,Yhteystiedot) VALUES (?,?,?,?,?,?)";
         database.query(insertData, [otsikko, kuvaus, kuvaUrl, sivunLinkki, haltija, yhteystiedot], (err, result) => {
                     console.log(err);
-                    res.send({ message: "Mainos luotu!" });
+                    res.send({ message: "Mainos on luotu, Muista julkaista mainoksesi" });
                 });
 
     });
@@ -79,11 +79,11 @@ app.post("/luoMainos", (req, res) => {
 
 app.post("/julkaiseMainos", (req, res) => {
 
+    const id = req.body.id;
     const otsikko = req.body.otsikko;
     const kuvaus = req.body.kuvaus;
     const kuvaUrl = req.body.kuva;
     const sivunLinkki = req.body.linkki;
-    const id = req.body.id;
     const yhteystiedot = req.body.yhteystiedot;
 
 
@@ -161,6 +161,116 @@ app.post("/poistaEtusivunMainos", (req, res) => {
 
 });
 
+
+//tapahtumien luonti
+
+app.post("/luoTapahtuma", (req, res) => {
+
+    const otsikko = req.body.otsikko;
+    const kuvaus = req.body.kuvaus;
+    const kuvaUrl = req.body.kuva;
+   
+
+    const haltija = req.body.haltija;
+    
+
+
+
+    const createTable = "CREATE TABLE IF NOT EXISTS Tapahtumat ( id INT(255) UNSIGNED AUTO_INCREMENT PRIMARY KEY, Otsikko VARCHAR(255) NOT NULL, Kuvaus VARCHAR(255) NOT NULL,  KuvaUrl VARCHAR(255), Haltija VARCHAR(255) NOT NULL, reg_date TIMESTAMP )";
+    database.query(createTable, (err, result) => {
+        console.log(err);
+
+        //lisätään tiedot tietokantaan
+
+        const insertData = "INSERT INTO Tapahtumat (Otsikko,Kuvaus,KuvaUrl,Haltija) VALUES (?,?,?,?)";
+        database.query(insertData, [otsikko, kuvaus, kuvaUrl,  haltija], (err, result) => {
+            console.log(err);
+            res.send({ message: "Tapahtuma luotu!" });
+        });
+
+    });
+
+});
+
+app.post("/julkaiseTapahtuma", (req, res) => {
+
+    const id = req.body.id;
+    const otsikko = req.body.otsikko;
+    const kuvaus = req.body.kuvaus;
+    const kuvaUrl = req.body.kuva;
+
+
+
+
+    const insertData = "INSERT INTO EtuSivunTapahtumat (Otsikko,Kuvaus,KuvaUrl,MainoksenId) VALUES (?,?,?,?)";
+    database.query(insertData, [otsikko, kuvaus, kuvaUrl, id], (err, result) => {
+        console.log(err);
+        res.send({ message: "Tapahtuma Julkaistu!" });
+
+    });
+
+});
+
+app.post("/haeTapahtumat", (req, res) => {
+
+    const haltija = req.body.haltija;
+
+    database.query("SELECT * FROM Tapahtumat WHERE Haltija='" + haltija + "' ORDER BY reg_date DESC", (err, result) => {
+
+        if (result) {
+            res.send(result);
+        } else {
+            res.send({ message: err });
+        }
+    });
+
+
+});
+
+app.post("/poistaTapahtuma", (req, res) => {
+
+    const id = req.body.id;
+    const haltija = req.body.haltija;
+    database.query("DELETE FROM Tapahtumat WHERE Haltija='" + haltija + "' AND id=" + id, (err, result) => {
+
+        if (result) {
+            res.send({ message: "Mainos poistettu!" });
+        } else {
+            res.send({ message: err });
+        }
+    });
+
+
+});
+app.post("/poistaEtusivunTapahtuma", (req, res) => {
+    const id = req.body.id;
+    database.query("DELETE FROM EtuSivunTapahtumat WHERE MainoksenId='" + id + "'", (err, result) => {
+
+        if (result) {
+            res.send({ message: "Tapahtuma poistettu!" });
+        } else {
+            res.send({ message: err });
+        }
+    });
+
+
+
+});
+
+
+app.post("/haeKaikkiTapahtumat", (req, res) => {
+
+    database.query("SELECT * FROM EtuSivunTapahtumat", (err, result) => {
+
+        if (result) {
+            res.send(result);
+        } else {
+            res.send({ message: err });
+        }
+    });
+
+
+});
 
 app.listen(3001, () => {
     console.log("serverrunning");

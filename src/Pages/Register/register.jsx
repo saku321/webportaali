@@ -37,14 +37,27 @@ const Registerpage = () => {
            
         }).catch((error)=>{
             document.getElementById("regAlert").style.display = "flex";
-            console.log(error);
-            if (error === "Error: Email format is invalid") {
+            console.log(error.message);
+            if (error.message === "Email format is invalid") {
                 setAlertMsg("Sähköpostisi on väärin!");
-            } else if (error === "Error: Password must be at least 16 characters OR at least 8 characters including a number and a letter") {
+            } else if (error.message === "Password must be at least 16 characters OR at least 8 characters including a number and a letter") {
                 setAlertMsg("Tarkista salasana!");
-            } else {
-                setAlertMsg("Jotain meni pieleen, kokeile eri käyttäjänimeä tai sähköpostia!");
+            } else if (error.message === "Username must consist of letters, numbers, hyphens, or underscores") {
+                setAlertMsg("Käyttäjä nimessä ei saa olla ääkkösiä!");
             }
+            else if (error.message === "Username must be between 3-100 characters, Validation is on username failed") {
+                setAlertMsg("Käyttäjä nimi pitää olla vähintään 3 merkkiä pitkä");
+            }
+            else if (error.message === "Username must be between 3-100 characters") {
+                setAlertMsg("Käyttäjä nimi pitää olla vähintään 3 merkkiä pitkä");
+            }
+            else if (error.message === '"email" is not allowed to be empty') {
+                setAlertMsg("Email kenttä ei voi olla tyhjä!");
+            }
+            else if (error.message === '"password" is not allowed to be empty') {
+                setAlertMsg("Salasana kenttä ei voi olla tyhjä!");
+            }
+              
         });
     }
     return (
@@ -56,7 +69,7 @@ const Registerpage = () => {
                 <TextField onChange={inputSalis} label="Salasana" variant="outlined" fullWidth type="password" autoComplete="off"/>
                 <TextField onChange={inputEmail} label="Email" variant="outlined" fullWidth type="email" autoComplete="off" />
                 <p><b>Huom!</b><br></br>
-                    Salasanan täytyy olla vähintään 8merkkiä pitkä, sisältää vähintään yhden numeron ja yhden isonkirjaimen!</p>
+                    Salasanan täytyy olla vähintään 8 merkkiä pitkä ja sisältää vähintään yhden numeron!</p>
                 <Alert id="regAlert" severity="error">{alertMsg}</Alert>
                 <Button variant="contained" onClick={kirjaudu}>Rekisteröidy</Button>
                 </form>
