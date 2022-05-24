@@ -87,14 +87,35 @@ app.post("/julkaiseMainos", (req, res) => {
     const yhteystiedot = req.body.yhteystiedot;
 
 
-  
-
-        const insertData = "INSERT INTO EtuSivunMainokset (Otsikko,Kuvaus,KuvaUrl,SivunUrl,Yhteystiedot,MainoksenId) VALUES (?,?,?,?,?,?)";
-        database.query(insertData, [otsikko, kuvaus, kuvaUrl, sivunLinkki, yhteystiedot,id], (err, result) => {
-            console.log(err);
-            res.send({ message: "Mainos Julkaistu!" });
+    const julkaiseMainos = "CREATE TABLE IF NOT EXISTS EtuSivunMainokset ( id INT(255) UNSIGNED AUTO_INCREMENT PRIMARY KEY, Otsikko VARCHAR(255) NOT NULL, Kuvaus VARCHAR(255) NOT NULL,  KuvaUrl VARCHAR(255) , SivunUrl VARCHAR(255), Yhteystiedot VARCHAR(255) NOT NULL, MainoksenId VARCHAR(255) NOT NULL, reg_date TIMESTAMP )";
+    database.query(julkaiseMainos, (err, result) => {
+        console.log(err);
 
     });
+
+    //tarkistetaan onko tapahtuma jo julkaistu
+    const checkMainos = "SELECT * FROM EtuSivunMainokset WHERE Otsikko='" + otsikko + "' AND Kuvaus='" + kuvaus + "' AND KuvaUrl='" + kuvaUrl + "' AND MainoksenId='" + id + "'";
+    database.query(checkMainos, (err, result) => {
+        if (result.length > 0) {
+            res.send({ message: "Mainos on jo julkaistu!" });
+        }
+        //jos tapahtumaa ei ole julkaistu julkaissaan
+        else {
+
+            const insertData = "INSERT INTO EtuSivunMainokset (Otsikko,Kuvaus,KuvaUrl,SivunUrl,Yhteystiedot,MainoksenId) VALUES (?,?,?,?,?,?)";
+
+            database.query(insertData, [otsikko, kuvaus, kuvaUrl, sivunLinkki, yhteystiedot, id], (err, result) => {
+                if (result) {
+                    res.send({ message: "Mainos Julkaistu!" });
+                } else {
+                    res.send({ message: "Jotain meni pieleen!" });
+                }
+            });
+
+        }
+
+    });
+
 
 });
 
@@ -169,10 +190,10 @@ app.post("/luoTapahtuma", (req, res) => {
     const otsikko = req.body.otsikko;
     const kuvaus = req.body.kuvaus;
     const kuvaUrl = req.body.kuva;
-   
+
 
     const haltija = req.body.haltija;
-    
+
 
 
 
@@ -183,12 +204,13 @@ app.post("/luoTapahtuma", (req, res) => {
         //lisätään tiedot tietokantaan
 
         const insertData = "INSERT INTO Tapahtumat (Otsikko,Kuvaus,KuvaUrl,Haltija) VALUES (?,?,?,?)";
-        database.query(insertData, [otsikko, kuvaus, kuvaUrl,  haltija], (err, result) => {
+        database.query(insertData, [otsikko, kuvaus, kuvaUrl, haltija], (err, result) => {
             console.log(err);
             res.send({ message: "Tapahtuma luotu!" });
         });
 
     });
+
 
 });
 
@@ -199,13 +221,31 @@ app.post("/julkaiseTapahtuma", (req, res) => {
     const kuvaus = req.body.kuvaus;
     const kuvaUrl = req.body.kuva;
 
-
-
-
-    const insertData = "INSERT INTO EtuSivunTapahtumat (Otsikko,Kuvaus,KuvaUrl,MainoksenId) VALUES (?,?,?,?)";
-    database.query(insertData, [otsikko, kuvaus, kuvaUrl, id], (err, result) => {
+    //jos taulua ei löydy luodaan se
+    const createTable = "CREATE TABLE IF NOT EXISTS EtuSivunTapahtumat ( id INT(255) UNSIGNED AUTO_INCREMENT PRIMARY KEY, Otsikko VARCHAR(255) NOT NULL, Kuvaus VARCHAR(255) NOT NULL,  KuvaUrl VARCHAR(255), MainoksenId VARCHAR(255) NOT NULL, reg_date TIMESTAMP )";
+    database.query(createTable, (err, result) => {
         console.log(err);
-        res.send({ message: "Tapahtuma Julkaistu!" });
+
+    });
+    //tarkistetaan onko tapahtuma jo julkaistu
+    const checkTapahtuma = "SELECT * FROM EtuSivunTapahtumat WHERE Otsikko='" + otsikko + "' AND Kuvaus='" + kuvaus + "' AND KuvaUrl='" + kuvaUrl + "' AND MainoksenId='" + id + "'";
+    database.query(checkTapahtuma, (err, result) => {
+        if (result.length > 0) {
+            res.send({ message: "Tapahtuma on jo julkaistu!" });
+        }
+        //jos tapahtumaa ei ole julkaistu julkaissaan
+        else {
+
+            const insertData = "INSERT INTO EtuSivunTapahtumat (Otsikko,Kuvaus,KuvaUrl,MainoksenId) VALUES (?,?,?,?) ";
+            database.query(insertData, [otsikko, kuvaus, kuvaUrl, id], (err, result) => {
+                if (result) {
+                    res.send({ message: "Tapahtuma Julkaistu!" });
+                } else {
+                    res.send({ message: "Jotain meni pieleen!" });
+                }
+            });
+
+        }
 
     });
 
@@ -271,6 +311,66 @@ app.post("/haeKaikkiTapahtumat", (req, res) => {
 
 
 });
+
+app.post("/muokkaaTapahtumaa", (req, res) => {
+
+    const id = req.body.id;
+    const otsikko = req.body.otsikko;
+    const kuvaus = req.body.kuvaus;
+    const kuvaUrl = req.body.kuva;
+    
+    //Päivitä tiedot tapahtumat tableen
+    const edit = "UPDATE Tapahtumat SET Otsikko='"+otsikko+"', Kuvaus='"+kuvaus+"', KuvaUrl='"+kuvaUrl+"' WHERE id="+id;
+    database.query(edit, (err, result) => {
+        const editEtuSivunTapahtuma = "UPDATE EtuSivunTapahtumat SET Otsikko='" + otsikko + "', Kuvaus='" + kuvaus + "', KuvaUrl='" + kuvaUrl + "' WHERE MainoksenId=" + id;
+        database.query(editEtuSivunTapahtuma, (err, result) => {
+            if (err) {
+                res.send({ message: "Jotain meni pieleen!" });
+            }
+        });
+
+        if (result) {
+            res.send({ message: "Tapahtuman muokkaus onnistui!" });
+        }
+        else {
+            res.send({ message: "Jotain meni pieleen!" });
+        }
+    });
+
+   
+
+});
+app.post("/muokkaaMainosta", (req, res) => {
+
+    const id = req.body.id;
+    const otsikko = req.body.otsikko;
+    const kuvaus = req.body.kuvaus;
+    const kuvaUrl = req.body.kuva;
+    const sivunUrl = req.body.sivuUrl;
+    const yhteysTiedot = req.body.yhteystiedot;
+
+
+    
+
+    const edit = "UPDATE Mainokset SET Otsikko='" + otsikko + "', Kuvaus='" + kuvaus + "', KuvaUrl='" + kuvaUrl + "',SivunUrl='" + sivunUrl + "',Yhteystiedot='" + yhteysTiedot + "' WHERE id=" + id;
+    database.query(edit, (err, result) => {
+
+        const editEtuSivunMainos = "UPDATE EtuSivunMainokset SET Otsikko = '" + otsikko + "', Kuvaus = '" + kuvaus + "', KuvaUrl = '" + kuvaUrl + "', SivunUrl = '" + sivunUrl + "', Yhteystiedot = '" + yhteysTiedot + "' WHERE MainoksenId = " + id;
+        database.query(editEtuSivunMainos, (err, result) => {
+            if (err) {
+                res.send({ message: "Jotain meni pieleen!" });
+            }
+        });
+
+        if (result) {
+            res.send({ message: "Mainoksen muokkaus onnistui!" });
+        }
+        else {
+            res.send({ message: "Jotain meni pieleen!" });
+        }
+    });
+});
+
 
 app.listen(3001, () => {
     console.log("serverrunning");

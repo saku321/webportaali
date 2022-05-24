@@ -102,8 +102,11 @@ const Etusivu = () => {
                     <h1 id="tapahtumatH1">Tapahtumat</h1>
                     <div id="bottomLine1"></div>
                 <ul>
+                        {tapahtumaData.length === undefined || tapahtumaData.length === 0 ? (
+                            <p>Ei Tapahtumia!</p>
+                        ) : null}
                         {/*Tapahtumien laatikot*/}
-                        {tapahtumaData.map(tapahtumat =>
+                        {tapahtumaData.length !== "undefined" && tapahtumaData.map(tapahtumat =>
                             <li key={tapahtumat.id}>
 
                                     <img src={tapahtumat.KuvaUrl} alt="mainosKuva" />
@@ -126,10 +129,10 @@ const Etusivu = () => {
                     <div id="bottomLine2"></div>
                     {/*Mainoksien laatikot*/}
                     <ul>
-                        {resData === "" && (
+                        {resData.length === 0 || resData.length === undefined ? (
                             <p>Ei mainoksia!</p>
-                        )}
-                        {resData.map(resData =>
+                        ) : null}
+                        {resData.length !== "undefined" && resData.map(resData =>
                             <li key={resData.id}>
 
                                 <div className="rightImg">
