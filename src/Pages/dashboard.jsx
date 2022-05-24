@@ -4,7 +4,6 @@ import TextField from '@mui/material/TextField';
 import Userfront from "@userfront/react";
 import Button from '@mui/material/Button';
 import axios from 'axios';
-import lapset from '../img/kuvia_Multia/lapset.jpg';
 import Alert from '@mui/material/Alert';
 
 function DashBoard() {
@@ -397,9 +396,9 @@ function DashBoard() {
                 <div className="lisääMainosDiv">
                     <h1>Luo mainos</h1>
                     <div className="bottomLine1"></div>
-                    {showAlert && (
-                        <Alert id="mainosAlert" variant="filled" variant="filled" severity="error" onClose={() => { setAlertStatus(false); }}>{alertMsg}</Alert>
-                    )}
+                    {showAlert ?(
+                        <Alert id="mainosAlert" variant="filled" variant="filled" severity="error" onClose={() =>  setAlertStatus(false) }>{alertMsg}</Alert>
+                    ):null}
                     <ul>
                         <li>
                             <div className="rightImg">
@@ -447,7 +446,7 @@ function DashBoard() {
                         <Alert id="mainosAlert" variant="filled" variant="filled" severity="success" onClose={() => { setAlertStatus(false); }}>{alertMsg}</Alert>
                     )}
                     <ul>
-                        {resData == "" && (
+                        {resData === "" && (
                             <p>Ei mainoksia!</p>
                             )}
                         {resData.map(resData =>
@@ -486,7 +485,7 @@ function DashBoard() {
                                         <div>
                                             <h1>{resData.Otsikko}</h1>
                                             <p>{resData.Kuvaus}</p>
-                                            <a href={"https://" + resData.SivunUrl} target="_blank">{resData.SivunUrl}</a>
+                                            <a href={"https://" + resData.SivunUrl} target="_blank" rel="noopener noreferrer">{resData.SivunUrl}</a>
                                             <p className="yhteystiedot">{resData.Yhteystiedot}</p>
                                         </div>
 

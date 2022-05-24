@@ -6,12 +6,7 @@ import kalevantuli from '../img/kuvia_Multia/kalevantuli.jpg';
 import markkinat from '../img/kuvia_Multia/markkinat.jpg';
 import melojat from '../img/kuvia_Multia/melojat.jpg';
 import korjuu from '../img/kuvia_Multia/herkukankorjuu.jpg';
-import rakentaja from '../img/kuvia_Multia/rakentaja.jpg';
-import hitsari from '../img/kuvia_Multia/hitsari.jpg';
-import lapset from '../img/kuvia_Multia/lapset.jpg';
-import lapset_vesi from '../img/kuvia_Multia/lapset_vesi.jpg';
 import axios from 'axios';
-import Userfront from "@userfront/react";
 
 import SimpleImageSlider from "react-simple-image-slider";
 const images = [
