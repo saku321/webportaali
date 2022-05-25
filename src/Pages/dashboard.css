@@ -267,6 +267,7 @@
 @media only screen and (max-width: 600px) {
     #dashBoardDiv {
         margin-top:20%;
+        margin-left:5px;
     }
     /*tapahtumat*/
     #lisääTapahtumaDiv{
@@ -275,6 +276,7 @@
 
     #lisääTapahtumaDiv li {
         width: 100%;
+        margin:25px;
 
     }
     
@@ -282,31 +284,51 @@
         width:100%;
     }
     #tapahtumat ul {
-        margin-left: -30px;
+        margin:0px;
+        margin-left:-5px;
+        margin-top:50px;
     }
     #tapahtumat h1{
         margin-top:250px;
     } 
     /*mainokset*/
-    #lisääMainosDiv{
+    #dashBoardDiv ul li {
+        width: 95%;
+        margin: 0px;
+        margin-bottom: 50px;
     }
-
     
-
+   
     #mainoksesi ul li {
-        width: 100%;
-        margin:0px;
+        width: 95%;
+        margin:25px;
         margin-bottom:50px;
 
     }
-   
-    .leftText{
-        min-height:inherit;
+
+
+    .leftText {
+        width: auto;
+        min-height: 300px;
+        height:auto;
+    }
+    .leftText a{
+        position:inherit;
+        font-size:20px;
+    }
+    .leftText div h1{
+        margin-top:25px !important;
         
     }
    
+    .rightImg{
+        width:100%;
+    }
    
-    .rightImg {
+   
+   
+    .rightImg div{
+        display:flex;
     }
     #mainoksesi ul {
         margin-left: -30px;
@@ -316,24 +338,24 @@
     }
     /*mainos buttonit*/
     #editMainosBtn {
-        transform: translateY(-120px);
         float: right;
         margin-right: 0px;
+        z-index:1;
     }
 
     #deleteMainosBtn {
         margin-bottom: 0px;
         float: right;
-        margin-right:0px;
-        transform: translateY(-10px);
+        margin-right: 0px;
+        z-index: 1;
     }
 
 
     #julkaiseMainosBtn {
         margin-bottom: 0px;
-        float: left;
-        transform: translateY(-250px);
+        float: right;
         margin-right: 0px;
+        z-index: 1;
     }
 
     #deleteMainosBtn:hover {

@@ -100,8 +100,9 @@ const Navbar = () => {
                 )}
                 {kirjautunut && (
                     <ul>
+                        <li><p>Tervetuloa: {Userfront.user.username}</p></li>
                         <li><Button color="neutral" variant="outlined" onClick={logout}>Kirjaudu ulos</Button></li>
-                        <p>Tervetuloa: {Userfront.user.username}</p>
+                        
 
                     </ul>
                 )}

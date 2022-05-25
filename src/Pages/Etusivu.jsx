@@ -138,8 +138,9 @@ const Etusivu = () => {
                                 <div className="leftText">
                                     <h1>{resData.Otsikko}</h1>
                                     <p>{resData.Kuvaus}</p>
-                                    <a href={"https://" + resData.SivunUrl} target="_blank" rel="noopener noreferrer">{resData.SivunUrl}</a>
                                     <p className="yhteystiedot">{resData.Yhteystiedot}</p>
+
+                                    <a href={"https://" + resData.SivunUrl} target="_blank" rel="noopener noreferrer">{resData.SivunUrl}</a><br></br>
                                 </div>
 
                             </li>

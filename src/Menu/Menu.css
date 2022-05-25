@@ -98,10 +98,21 @@
 
     #headerDiv {
         width: 100%;
-        margin-left: 25px;
+        margin:0px;
+        margin-top:8%;
+        margin-bottom:25px;
     }
+    #headerDiv ul{
+        float:inherit;
+        display:block;
+    }
+    
+    #headerDiv img{
+        float:inherit;
+        width:30%;
 
+    }
     #menuUl li {
-        margin: 20px;
+         margin: 20px;
     }
 }

@@ -401,16 +401,7 @@ function DashBoard() {
                     ):null}
                     <ul>
                         <li>
-                            <div className="rightImg">
-
-                                <img id="mainosKuva" src={ kuvanUrl} alt="MainosKuva" />
-
-
-
-
-
-
-                            </div>
+                         
                             <div className="leftText">
                                 <TextField onChange={inputOtsikko} id="mainoksenOtsikko" label="Mainoksen otsikko" autoComplete="off" fullWidth size="medium" />
                                 <br></br>
@@ -430,6 +421,16 @@ function DashBoard() {
 
                                 <Button onClick={() => { if (kuvanUrl === "") { setAlertMsg("Mainoksessa täytyy olla kuva!"); setAlertStatus(true); } else luoMainos(); }} color="success" variant="contained">Tallenna</Button>
                                 <input id="uploadInput" onChange={(e) => {  uploadImg(e.target.files[0]); document.getElementById("mainosKuva").style.display = "block";}} type="file" accept="image/*" />
+
+                            </div>
+                            <div className="rightImg">
+
+                                <img id="mainosKuva" src={kuvanUrl} alt="MainosKuva" />
+
+
+
+
+
 
                             </div>
                         </li>
@@ -452,41 +453,16 @@ function DashBoard() {
                         {resData.map(resData =>
                             <li key={resData.id}>
 
-                                <div className="rightImg">
-
-                                    <img src={resData.KuvaUrl} alt="mainosKuva" id={"mainoksenKuva " + resData.id} />
-                                    {/*Jos mainoksen muokkaus on pois päältä*/}
-                                    {!editMainos && (
-                                        <div>
-                                            <Button onClick={() => poistaMainos(resData.id)} id="deleteMainosBtn" color="error" variant="contained">Poista mainos</Button>
-                                            {/*Laittaa mainoksen muokkauksen päälle ja lisää edelliset tiedot inputteihin*/}
-                                            <Button onClick={() => { setEditMainos(edit => !edit); setOtsikko(resData.Otsikko); setKuvaus(resData.Kuvaus); setTapahtumanKuvanUrl(resData.KuvaUrl); setLinkki(resData.SivunUrl); setYhteystiedot(resData.Yhteystiedot)}} id="editMainosBtn" color="info" variant="contained">Muokkaa mainosta</Button>
-
-                                            <Button onClick={() => julkaiseMainos(resData.Otsikko, resData.Kuvaus, resData.SivunUrl, resData.KuvaUrl, resData.yhteystiedot, resData.id)} id="julkaiseMainosBtn" color="success" variant="contained">Julkaise Mainos</Button>
-
-                                            </div>
-                                    )}
-                                    {/*Jos mainoksen muokkaus on päällä*/}
-                                    {editMainos && (
-                                        <div>
-
-                                            <Button onClick={() => setEditMainos(edit => !edit)} id="editMainosBtn" color="error" variant="contained">Poistu muokkauksesta</Button>
-
-                                            <Button onClick={() => mainoksenMuokkaus(resData.id)} id="julkaiseMainosBtn" color="success" variant="contained">Tallenna muokkaus</Button>
-
-                                        </div>
-                                        )}
-
-
-                                </div>
+                              
                                     <div className="leftText">
                                        
                                     {!editMainos && (
                                         <div>
                                             <h1>{resData.Otsikko}</h1>
                                             <p>{resData.Kuvaus}</p>
-                                            <a href={"https://" + resData.SivunUrl} target="_blank" rel="noopener noreferrer">{resData.SivunUrl}</a>
                                             <p className="yhteystiedot">{resData.Yhteystiedot}</p>
+                                            <a href={"https://" + resData.SivunUrl} target="_blank" rel="noopener noreferrer">{resData.SivunUrl}</a><br></br>
+
                                         </div>
 
 
@@ -508,6 +484,34 @@ function DashBoard() {
                                     )}
 
                                   </ul>
+
+                                </div>
+                                <div className="rightImg">
+
+                                    <img src={resData.KuvaUrl} alt="mainosKuva" id={"mainoksenKuva " + resData.id} />
+                                    {/*Jos mainoksen muokkaus on pois päältä*/}
+                                    {!editMainos && (
+                                        <div>
+
+                                            <Button onClick={() => poistaMainos(resData.id)} id="deleteMainosBtn" color="error" variant="contained">Poista mainos</Button>
+                                            {/*Laittaa mainoksen muokkauksen päälle ja lisää edelliset tiedot inputteihin*/}
+                                            <Button onClick={() => { setEditMainos(edit => !edit); setOtsikko(resData.Otsikko); setKuvaus(resData.Kuvaus); setTapahtumanKuvanUrl(resData.KuvaUrl); setLinkki(resData.SivunUrl); setYhteystiedot(resData.Yhteystiedot) }} id="editMainosBtn" color="info" variant="contained">Muokkaa mainosta</Button>
+
+                                            <Button onClick={() => julkaiseMainos(resData.Otsikko, resData.Kuvaus, resData.SivunUrl, resData.KuvaUrl, resData.yhteystiedot, resData.id)} id="julkaiseMainosBtn" color="success" variant="contained">Julkaise Mainos</Button>
+
+                                        </div>
+                                    )}
+                                    {/*Jos mainoksen muokkaus on päällä*/}
+                                    {editMainos && (
+                                        <div>
+
+                                            <Button onClick={() => setEditMainos(edit => !edit)} id="editMainosBtn" color="error" variant="contained">Poistu muokkauksesta</Button>
+
+                                            <Button onClick={() => mainoksenMuokkaus(resData.id)} id="julkaiseMainosBtn" color="success" variant="contained">Tallenna muokkaus</Button>
+
+                                        </div>
+                                    )}
+
 
                                 </div>
 

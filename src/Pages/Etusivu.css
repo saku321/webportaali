@@ -3,6 +3,7 @@
 #etusivuDiv {
     margin-right: 10%;
     margin-left: 10%;
+    overflow-x:hidden;
 }
 #etusivuImg {
     width: 80%;
@@ -181,9 +182,12 @@ section{
         width: 100%;
     }
     #tapahtumaKortit li {
-
+        margin-left:-10px;
         width: 100%;
+
+
     }
+   
     #mainosDiv {
         width: 100%;
     }
@@ -193,7 +197,10 @@ section{
     #mainosShow {
         margin-left:0px;
     }
+    
     #mainosDiv li{
-        margin-left:0px;
+        margin-left:-15px;
+        width:90%;
+       
     }
 }
