@@ -63,7 +63,7 @@ function DashBoard() {
         axios.post('http://localhost:3001/haeMainos', {
             haltija: Userfront.user.username,
         }).then((res) => {
-
+            console.log(res);
             setData(res.data);
         }).catch((err) => {
             setAlertMsg(err);
@@ -84,7 +84,7 @@ function DashBoard() {
         }).then(function (res) {
             HaeMainokset();
 
-
+            console.log(res);
             setMainoksesiShow(show => !show);
             setLisaaMainosShow(false);
 
