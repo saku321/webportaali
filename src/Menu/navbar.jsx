@@ -101,21 +101,22 @@ const Navbar = () => {
                 {kirjautunut && (
                     <ul>
                         <li><p>Tervetuloa: {Userfront.user.username}</p></li>
+                      
+                        {isAdmin || isEditor ? (
+                          
+
+                                <li><Link to="/dashboard"><Button color="neutral" variant="outlined">Hallintapaneeli</Button></Link></li>
+
+
+
+                            
+                        ) : null}
                         <li><Button color="neutral" variant="outlined" onClick={logout}>Kirjaudu ulos</Button></li>
-                        
 
                     </ul>
                 )}
 
-                {isAdmin || isEditor ?(
-                    <ul>
-
-                        <li><Link to="/dashboard"><Button color="neutral" variant="outlined">Hallintapaneeli</Button></Link></li>
-                        
-                        
-
-                        </ul>
-                ):null}
+                
                
             </ThemeProvider>
 

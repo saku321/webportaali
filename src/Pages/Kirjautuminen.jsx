@@ -19,14 +19,15 @@ const Kirjautuminen=()=>{
     }
    
     const kirjaudu = (event) => {
-        
         Userfront.login({
             method: "password",
             emailOrUsername: kayttaja,
             password: salis,
             redirect:"/webportaali"
-        }).catch((error) => {
+        })
+            .catch((error) => {
             document.getElementById("alert").style.display = "flex";
+            console.log(error);
         });
     }
     return (

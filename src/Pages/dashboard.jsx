@@ -7,33 +7,12 @@ import axios from 'axios';
 import Alert from '@mui/material/Alert';
 
 function DashBoard() {
+    //Inputtejen statet
     const [otsikko, setOtsikko] = useState("");
     const [kuvaus, setKuvaus] = useState("");
     const [linkki, setLinkki] = useState("");
-
-    const [kuvanUrl, setKuvanUrl] = useState("");
-    const [tapahtumaKuvanUrl, setTapahtumanKuvanUrl] = useState("");
-
     const [yhtTiedot, setYhteystiedot] = useState("");
 
-    const [lisaaMainosShow, setLisaaMainosShow] = useState(false);
-    const [mainoksesiShow, setMainoksesiShow] = useState(false);
-    const [lisaaTapahtumaShow, setLisääTapahtumaShow] = useState(false);
-    const [tapahtumasiShow, setTapahtumasiShow] = useState(false);
-
-    const [resData, setData] = useState([]);
-
-    const [TapahtumaData, setTapahtumaData] = useState([]);
-
-    const [alertMsg, setAlertMsg] = useState("");
-    const [showAlert, setAlertStatus] = useState(false);
-
-    const [editTapahtuma, setEditTapahtuma] = useState(false);
-    const [editMainos, setEditMainos] = useState(false);
-   
-
-
-    
     const inputOtsikko = (e) => {
         setOtsikko(e.target.value);
     }
@@ -43,9 +22,82 @@ function DashBoard() {
     const inputLinkki = (e) => {
         setLinkki(e.target.value);
     }
-     const inputYhteystiedot = (e) => {
+    const inputYhteystiedot = (e) => {
         setYhteystiedot(e.target.value);
     }
+
+    //Mainoksen kuva
+    const [kuvanUrl, setKuvanUrl] = useState("");
+    //Tapahtuman kuva
+    const [tapahtumaKuvanUrl, setTapahtumanKuvanUrl] = useState("");
+
+    //Lisää mainos sivu näkyviin 
+    const [lisaaMainosShow, setLisaaMainosShow] = useState(false);
+    //Omat mainokset sivu näkyviin
+    const [mainoksesiShow, setMainoksesiShow] = useState(false);
+    //Lisää tapahtuma sivu näkyviin
+    const [lisaaTapahtumaShow, setLisääTapahtumaShow] = useState(false);
+    //Omat tapahtumat sivu näkyviin
+    const [tapahtumasiShow, setTapahtumasiShow] = useState(false);
+    //Responsedata, Kun mainokset haetaan tallennetaan objecti tähän
+    const [resData, setData] = useState([]);
+
+    //Kun tapahtumat haetaan, tallennetaan tapahtuman objecti tähän
+    const [TapahtumaData, setTapahtumaData] = useState([]);
+
+    //Alertin teksti ja näkyvyys
+    const [alertMsg, setAlertMsg] = useState("");
+    const [showAlert, setAlertStatus] = useState(false);
+
+    //tapahtuman ja mainoksen muokkaus näkyviin
+    const [editTapahtuma, setEditTapahtuma] = useState(false);
+    const [editMainos, setEditMainos] = useState(false);
+   
+
+
+//Mainosten käsittelyt
+
+    const HaeMainokset = () => {
+
+
+        axios.post('http://localhost:3001/haeMainos', {
+            haltija: Userfront.user.username,
+        }).then((res) => {
+
+            setData(res.data);
+        }).catch((err) => {
+            setAlertMsg(err);
+        });
+
+
+    }
+    //luo mainos
+    const luoMainos = () => {
+
+        axios.post('http://localhost:3001/luoMainos', {
+            otsikko: otsikko,
+            kuvaus: kuvaus,
+            linkki: linkki,
+            kuva: kuvanUrl,
+            haltija: Userfront.user.username,
+            yhteystiedot: yhtTiedot,
+        }).then(function (res) {
+            HaeMainokset();
+
+
+            setMainoksesiShow(show => !show);
+            setLisaaMainosShow(false);
+
+            setAlertMsg(res.data.message);
+            setAlertStatus(true);
+
+        }).catch(function (err) {
+            setAlertMsg(err);
+            setAlertStatus(true);
+
+        });
+    }
+
     //mainoksen kuvan tallennus
     const uploadImg = (kuvaFile) => {
         const data = new FormData()
@@ -63,38 +115,30 @@ function DashBoard() {
             })
             .catch(err => console.log(err))
     }
-   
-   
 
+    //päivitä mainoksen kuva
+    const updateMainosImg = (kuvaFile, id) => {
+        const data = new FormData()
+        data.append("file", kuvaFile)
+        data.append("upload_preset", "tapahtumaKuvat")
+        data.append("cloud_name", "dyu1m9mi")
 
-    //Mainosten tallentaminen databaseen 
-    
-    const luoMainos = () => {
-         
-            axios.post('http://localhost:3001/luoMainos', {
-                otsikko: otsikko,
-                kuvaus: kuvaus,
-                linkki: linkki,
-                kuva: kuvanUrl,
-                haltija: Userfront.user.username,
-                yhteystiedot: yhtTiedot,
-            }).then(function (res) {
+        fetch("https://api.cloudinary.com/v1_1/dyvu1m9mi/image/upload", {
+            method: "post",
+            body: data
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                document.getElementById("mainoksenKuva " + id).src = data.url;
+                setTapahtumanKuvanUrl(data.url);
+
                 HaeMainokset();
 
+            })
+            .catch(err => console.log(err))
+    }
 
-                setMainoksesiShow(show => !show);
-                setLisaaMainosShow(false);
-
-                setAlertMsg(res.data.message);
-                setAlertStatus(true);
-
-            }).catch(function (err) {
-                setAlertMsg(err);
-                setAlertStatus(true);
-
-            });
-        }
-    
+    //julkaise mainos
     const julkaiseMainos = (mainoksetOtsikko,mainoksenKuvaus,mainoksenLinkki,mainoskuvanLinkki,mainoksenYhtTiedot,mainoksenId) => {
         axios.post('http://localhost:3001/julkaiseMainos', {
             id:mainoksenId,
@@ -118,26 +162,12 @@ function DashBoard() {
         });
     }
 
-    const HaeMainokset = () => {
-        
-        
-        axios.post('http://localhost:3001/haeMainos', {
-            haltija: Userfront.user.username,
-        }).then((res) => {
-            
-            setData(res.data);
-        }).catch((err)=> {
-            setAlertMsg(err);
-        });
-      
-      
-    }
-
+   //poista mainos
     const poistaMainos = (mainosId) => {
         axios.post('http://localhost:3001/poistaMainos', {
             id: mainosId,
 
-            haltija:Userfront.user.username,
+            haltija: Userfront.user.username,
         }).then((res) => {
             setAlertMsg(res.data.message);
             setAlertStatus(true);
@@ -152,7 +182,7 @@ function DashBoard() {
         axios.post('http://localhost:3001/poistaEtusivunMainos', {
             id: mainosId,
 
-            haltija:Userfront.user.username,
+            haltija: Userfront.user.username,
         }).then((res) => {
             setAlertMsg(res.data.message);
             setAlertStatus(true);
@@ -166,6 +196,32 @@ function DashBoard() {
         });
 
     }
+
+    //muokkaa mainosta
+    const mainoksenMuokkaus = (mainosId) => {
+        axios.post('http://localhost:3001/muokkaaMainosta', {
+            id: mainosId,
+            otsikko: otsikko,
+            kuvaus: kuvaus,
+
+            kuva: tapahtumaKuvanUrl,
+            sivuUrl: linkki,
+            yhteystiedot: yhtTiedot,
+        }).then((res) => {
+            setAlertMsg(res.data.message);
+            setAlertStatus(true);
+            setEditMainos(false);
+            HaeMainokset();
+        }).catch((err) => {
+            setAlertMsg(err.data.message);
+            setAlertStatus(true);
+        });
+
+    }
+
+
+
+//Tapahtumien käsittelyt
 
    //Tapahtuman luonti
     const luoTapahtuma = () => {
@@ -220,6 +276,7 @@ function DashBoard() {
         });
     }
 
+    //Lataa tapahtuman kuva
     const uploadTapahtumaImg = (kuvaFile) => {
         const data = new FormData()
         data.append("file", kuvaFile)
@@ -239,6 +296,7 @@ function DashBoard() {
             })
             .catch(err => console.log(err))
     }
+   //Päivitä tapahtuman kuva
     const updateTapahtumaImg = (kuvaFile,id) => {
         const data = new FormData()
         data.append("file", kuvaFile)
@@ -257,7 +315,7 @@ function DashBoard() {
             })
             .catch(err => console.log(err))
     }
-
+    //Hae kaikki tapahtumat
     const HaeTapahtuma = () => {
 
 
@@ -272,6 +330,7 @@ function DashBoard() {
 
 
     }
+    //poistatapahtuma
     const poistaTapahtuma = (tapahtumaId) => {
         axios.post('http://localhost:3001/poistaTapahtuma', {
             id: tapahtumaId,
@@ -325,62 +384,25 @@ function DashBoard() {
         });
 
     }
-    //muokkaa mainosta
-    const mainoksenMuokkaus = (mainosId) => {
-        axios.post('http://localhost:3001/muokkaaMainosta', {
-            id: mainosId,
-            otsikko: otsikko,
-            kuvaus: kuvaus,
-
-            kuva: tapahtumaKuvanUrl,
-            sivuUrl: linkki,
-            yhteystiedot: yhtTiedot,
-        }).then((res) => {
-            setAlertMsg(res.data.message);
-            setAlertStatus(true);
-            setEditMainos(false);
-            HaeMainokset();
-        }).catch((err) => {
-            setAlertMsg(err.data.message);
-            setAlertStatus(true);
-        });
-
-    }
-    //päivitä mainoksen kuva
-    const updateMainosImg = (kuvaFile, id) => {
-        const data = new FormData()
-        data.append("file", kuvaFile)
-        data.append("upload_preset", "tapahtumaKuvat")
-        data.append("cloud_name", "dyu1m9mi")
-
-        fetch("https://api.cloudinary.com/v1_1/dyvu1m9mi/image/upload", {
-            method: "post",
-            body: data
-        })
-            .then(resp => resp.json())
-            .then(data => {
-                document.getElementById("mainoksenKuva " + id).src = data.url;
-                setTapahtumanKuvanUrl(data.url);
-
-                HaeMainokset();
-
-            })
-            .catch(err => console.log(err))
-    }
+   
+   
     
     return (
 
         <div id="dashBoardDiv">
+           
             <h1>Hallintapaneeli</h1>
             <div className="bottomLine1"></div>
             
             <div id="toolDiv">
                 <div>
+                    {/*Mainoksen napit*/}
                     <Button variant="contained" color="success" onClick={() => { setAlertStatus(false); setLisaaMainosShow(show => !show); setMainoksesiShow(false); setTapahtumasiShow(false); setLisääTapahtumaShow(false); }}>Luo mainos</Button>
                     <Button variant="contained" color="info" onClick={() => { setAlertStatus(false); HaeMainokset(); setMainoksesiShow(show => !show); setLisaaMainosShow(false); setTapahtumasiShow(false); setLisääTapahtumaShow(false); }}>Mainoksesi</Button>
                     </div>
                 {Userfront.user.hasRole("admin") && (
                     <div>
+                        {/*Tapahtuman napit*/}
                         <Button variant="contained" color="success" onClick={() => { setAlertStatus(false); setLisääTapahtumaShow(show => !show); setTapahtumasiShow(false); setMainoksesiShow(false); setLisaaMainosShow(false); setOtsikko(""); setKuvaus(""); setTapahtumanKuvanUrl("");}}>Luo tapahtuma</Button>
 
                         <Button variant="contained" color="info" onClick={() => { setAlertStatus(false);HaeTapahtuma(); setTapahtumasiShow(show => !show); setLisääTapahtumaShow(false); setMainoksesiShow(false); setLisaaMainosShow(false); }}>Tapahtumasi</Button>
@@ -401,7 +423,7 @@ function DashBoard() {
                     ):null}
                     <ul>
                         <li>
-                         
+                            {/*Mainoksen luonnin inputit*/}
                             <div className="leftText">
                                 <TextField onChange={inputOtsikko} id="mainoksenOtsikko" label="Mainoksen otsikko" autoComplete="off" fullWidth size="medium" />
                                 <br></br>
@@ -423,6 +445,7 @@ function DashBoard() {
                                 <input id="uploadInput" onChange={(e) => {  uploadImg(e.target.files[0]); document.getElementById("mainosKuva").style.display = "block";}} type="file" accept="image/*" />
 
                             </div>
+                            {/*Mainoksen luonnin kuvat*/}
                             <div className="rightImg">
 
                                 <img id="mainosKuva" src={kuvanUrl} alt="MainosKuva" />
@@ -449,13 +472,14 @@ function DashBoard() {
                     <ul>
                         {resData === "" && (
                             <p>Ei mainoksia!</p>
-                            )}
+                        )}
+                        {/*Tulostetaan mainokset*/}
                         {resData.map(resData =>
                             <li key={resData.id}>
 
                               
                                     <div className="leftText">
-                                       
+                                    {/*Jos mainoksen muokkaus on pois päältä*/}
                                     {!editMainos && (
                                         <div>
                                             <h1>{resData.Otsikko}</h1>
@@ -468,6 +492,8 @@ function DashBoard() {
 
                                     )}
                                     <ul>
+                                    {/*Jos mainoksen muokkaus on päällä*/}
+
                                     {editMainos && (
                                             <div style={{ float: "left", margin: "20px" }}>
                                                 <p>Otsikko</p>
@@ -533,7 +559,7 @@ function DashBoard() {
                   
 
                         <li>
-
+                            
                             <img id="tapahtumaKuva" className="tapahtumaKuva" src={tapahtumaKuvanUrl} alt="TapahtumaKuva" />
                             <br></br>
                             <br></br>
@@ -569,7 +595,9 @@ function DashBoard() {
                     <ul>
                         {TapahtumaData.length === 0 ||TapahtumaData.length === undefined ? (
                             <p>Ei Tapahtumia!</p>
-                        ):null}
+                        ) : null}
+                        {/*Tulostetaan tapahtumat*/}
+
                         {TapahtumaData.length !== "undefined" && TapahtumaData.map(tapahtumanData =>
                             <li key={tapahtumanData.id}>
 
